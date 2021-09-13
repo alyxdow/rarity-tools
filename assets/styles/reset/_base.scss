@@ -1,0 +1,8 @@
+html {
+  // Remove mobile bluish color on tap
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  text-rendering: optimizeSpeed;
+}

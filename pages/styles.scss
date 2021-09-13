@@ -1,0 +1,13 @@
+.main {
+  &__container {
+    @apply h-screen;
+    @apply flex;
+    @apply justify-center items-center;
+  }
+
+  &__title {
+    @apply text-8xl font-bold text-transparent;
+    @apply bg-gradient-to-r bg-clip-text;
+    @apply from-green-600 via-primary to-primary-light;
+  }
+}
