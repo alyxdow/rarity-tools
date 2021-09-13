@@ -5,9 +5,9 @@
     @apply justify-center items-center;
   }
 
-  &__title {
-    @apply text-8xl font-bold text-transparent;
-    @apply bg-gradient-to-r bg-clip-text;
-    @apply from-green-600 via-primary to-primary-light;
+  &__info {
+    @apply text-lg font-bold text-transparent;
+    @apply bg-gradient-to-br bg-clip-text;
+    @apply from-blue-400 via-primary to-primary-light;
   }
 }

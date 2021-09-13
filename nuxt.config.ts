@@ -108,6 +108,9 @@ export default {
 
     // Windi
     'nuxt-windicss',
+
+    // Composition API
+    '@nuxtjs/composition-api/module'
   ],
 
   /**
