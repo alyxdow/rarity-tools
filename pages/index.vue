@@ -1,7 +1,10 @@
 <template>
   <main class="main">
     <div class="main__container">
-      <pre class="main__info">Collection {{ collection }} has {{ val }} apes</pre>
+      <p class="main__info">
+        {{ traitValue }} {{ traitName }} on collection {{ collection }} <br />
+        has {{ val }}% of rarity
+      </p>
     </div>
   </main>
 </template>

@@ -1,16 +1,18 @@
-import { defineComponent, ref, useFetch } from '@nuxtjs/composition-api'
-import { getNumberOfApes } from '~/api/apes'
+import { defineComponent, ref, useFetch, Ref } from '@nuxtjs/composition-api'
+import { calculateRarity } from '~/api/rarity'
+import { AllTraits } from '~/types'
 
 export default defineComponent({
   setup() {
     const val = ref()
-    const collection = ref('mutants')
+    const collection = ref('bored')
+    const traitName: Ref<keyof AllTraits> = ref('Background')
+    const traitValue = ref('Blue')
 
     useFetch(async () => {
-      val.value = await getNumberOfApes(collection.value)
-      console.log(val.value)
+      val.value = await calculateRarity(collection.value, traitName.value, traitValue.value)
     })
 
-    return { val, collection }
+    return { val, collection, traitName, traitValue }
   },
 })
