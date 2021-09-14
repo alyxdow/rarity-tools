@@ -16,3 +16,16 @@ export const getApes = async (collection: string) => {
 
   return apes
 }
+
+/**
+ * Method to get the number of apes on a specified collection
+ * @param collection collection name to measure
+ * @returns a number that represents the number of apes
+ */
+
+export const getNumberOfApes = async (collection: string) => {
+  const apes = await getApes(collection)
+  if (!apes) return
+
+  return apes.length
+}

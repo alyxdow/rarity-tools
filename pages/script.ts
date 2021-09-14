@@ -1,16 +1,16 @@
 import { defineComponent, ref, useFetch } from '@nuxtjs/composition-api'
-import { getTraits, sumTraits } from '~/api/traits'
+import { getNumberOfApes } from '~/api/apes'
 
 export default defineComponent({
   setup() {
-    const sum = ref()
-    useFetch(async () => {
-      const traits = await getTraits('mutants')
-      if (!traits) return
+    const val = ref()
+    const collection = ref('mutants')
 
-      sum.value = sumTraits(traits['Background'])
+    useFetch(async () => {
+      val.value = await getNumberOfApes(collection.value)
+      console.log(val.value)
     })
 
-    return { sum }
+    return { val, collection }
   },
 })

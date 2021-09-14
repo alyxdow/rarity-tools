@@ -1,7 +1,7 @@
 <template>
   <main class="main">
     <div class="main__container">
-      <pre class="main__info">{{ sum }}</pre>
+      <pre class="main__info">Collection {{ collection }} has {{ val }} apes</pre>
     </div>
   </main>
 </template>
