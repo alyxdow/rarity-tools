@@ -16,9 +16,11 @@ export const getTraits = async (collection: string) => {
   // prettier-ignore
   const allTraits: AllTraits = {
     Fur:        [],
+    Hat:        [],
     Eyes:       [],
     Mouth:      [],
     Clothes:    [],
+    Earring:    [],
     Background: [],
   }
 
@@ -26,9 +28,11 @@ export const getTraits = async (collection: string) => {
   traits.forEach(trait => {
     // TODO: reduce this to one line of code
     allTraits['Fur'       ].push(trait['Fur'       ])
+    allTraits['Hat'       ].push(trait['Hat'       ])
     allTraits['Eyes'      ].push(trait['Eyes'      ])
     allTraits['Mouth'     ].push(trait['Mouth'     ])
     allTraits['Clothes'   ].push(trait['Clothes'   ])
+    allTraits['Earring'   ].push(trait['Earring'   ])
     allTraits['Background'].push(trait['Background'])
   })
 
