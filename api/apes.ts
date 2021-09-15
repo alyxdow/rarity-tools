@@ -1,4 +1,5 @@
 import fetch from 'cross-fetch'
+import { filter } from 'lodash'
 import { Ape } from '~/types'
 import { url, collections } from './config'
 
@@ -21,6 +22,23 @@ export const getApes = async (collection: string) => {
   }))
 
   return apes
+}
+
+/**
+ * Method to find a ape by its ID and collection
+ * @param collection collection name to find
+ * @param apeId tokenId to search
+ * @returns the ape that corresponds to id
+ */
+
+export const getApe = async (collection: string, apeId: string | number) => {
+  const allApes = await getApes(collection)
+  if (!allApes) return
+
+  const ape = filter(allApes, { tokenId: apeId })[0]
+  if (!ape) return console.log(`Error, cannot find ${apeId}`)
+
+  return ape
 }
 
 /**
