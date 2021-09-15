@@ -3,7 +3,7 @@ import { mount } from '@vue/test-utils'
 import Home from '~/pages/index.vue'
 
 describe('Home Page', () => {
-  test('Home Page Initialized', () => {
+  test.skip('Home Page Initialized', () => {
     const instance = mount(Home)
     expect(instance.vm).toBeTruthy()
   })
