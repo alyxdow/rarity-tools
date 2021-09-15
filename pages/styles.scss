@@ -10,4 +10,8 @@
     @apply bg-gradient-to-br bg-clip-text;
     @apply from-blue-400 via-primary to-primary-light;
   }
+
+  &__info--danger {
+    @apply from-red-500 to-orange-500;
+  }
 }

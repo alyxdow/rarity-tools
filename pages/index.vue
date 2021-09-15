@@ -1,10 +1,9 @@
 <template>
   <main class="main">
     <div class="main__container">
-      <p class="main__info">
-        {{ traitValue }} {{ traitName }} on collection {{ collection }} <br />
-        has {{ val }}% of rarity
-      </p>
+      <pre class="main__info main__info--danger" v-if="error">Error</pre>
+      <pre class="main__info" v-else-if="loading">Loading...</pre>
+      <pre class="main__info" v-else>{{ val }}</pre>
     </div>
   </main>
 </template>
