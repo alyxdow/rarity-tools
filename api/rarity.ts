@@ -1,5 +1,6 @@
+import { sum, values } from 'lodash'
 import { getTraits, sumTraits } from '~/api/traits'
-import { AllTraits, Ape, Trait } from '~/types'
+import { AllTraits, Ape } from '~/types'
 import { getNumberOfApes } from './apes'
 
 /**
@@ -52,4 +53,17 @@ export const calculateApeRarity = async (ape: Ape) => {
   }
 
   return apeTraitsRarities
+}
+
+/**
+ * Method to calculate how much a ape worths
+ * @param ape ape to be evaluated
+ * @returns the score points as a number
+ */
+
+export const calculateApeScorePoint = async (ape: Ape) => {
+  const traitsValue = values(await calculateApeRarity(ape))
+  const scorePoints = +sum(traitsValue).toFixed(2)
+
+  return scorePoints
 }

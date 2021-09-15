@@ -1,5 +1,5 @@
 import { describe, test, expect } from '@jest/globals'
-import { calculateApeRarity, calculateRarity } from '~/api/rarity'
+import { calculateApeRarity, calculateApeScorePoint, calculateRarity } from '~/api/rarity'
 import { Ape } from '~/types'
 
 describe('Trait rarity', () => {
@@ -126,5 +126,172 @@ describe('Ape rarity', () => {
       Mouth: 19.62,
       Fur: 47.2,
     })
+  })
+})
+
+describe('Ape points', () => {
+  test('Random full bored score', async () => {
+    const ape: Ape = {
+      image: '',
+      imageHash: '',
+      tokenId: 0,
+      collection: 'bored',
+      traits: {
+        Background: 'Yellow',
+        Clothes: 'Striped Tee',
+        Eyes: 'Blindfold',
+        Mouth: 'Closed',
+        Fur: 'Red',
+        Hat: "Fisherman's Hat",
+        Earring: 'Diamond Stud',
+      },
+    }
+
+    const points = await calculateApeScorePoint(ape)
+    expect(points).toBe(265.62)
+  })
+
+  test('Random bored score', async () => {
+    const ape: Ape = {
+      image: '',
+      imageHash: '',
+      tokenId: 0,
+      collection: 'bored',
+      traits: {
+        Background: 'Yellow',
+        Clothes: 'Striped Tee',
+        Eyes: 'Blindfold',
+        Mouth: 'Closed',
+        Fur: 'Red',
+        Earring: 'Diamond Stud',
+      },
+    }
+
+    const points = await calculateApeScorePoint(ape)
+    expect(points).toBe(236.55)
+  })
+
+  test('Cheapest full bored ape', async () => {
+    const ape: Ape = {
+      image: '',
+      imageHash: '',
+      tokenId: 0,
+      collection: 'bored',
+      traits: {
+        Background: 'Yellow',
+        Clothes: 'Striped Tee',
+        Eyes: 'Bored',
+        Mouth: 'Bored Unshaven',
+        Fur: 'Dark Brown',
+        Hat: "Seaman's Hat",
+        Earring: 'Silver Hoop',
+      },
+    }
+
+    const rarity = await calculateApeScorePoint(ape)
+    expect(rarity).toBe(87.27)
+  })
+
+  test('Expensive full bored ape', async () => {
+    const ape: Ape = {
+      image: '',
+      imageHash: '',
+      tokenId: 0,
+      collection: 'bored',
+      traits: {
+        Background: 'Dark Blue',
+        Clothes: 'Dark Suit',
+        Eyes: 'Wide Blue',
+        Mouth: 'Biting',
+        Fur: 'Green Camouflage',
+        Hat: 'Yellow Horns',
+        Earring: 'Cross',
+      },
+    }
+
+    const rarity = await calculateApeScorePoint(ape)
+    expect(rarity).toBe(668.03)
+  })
+
+  test('Random full mutant score', async () => {
+    const ape: Ape = {
+      image: '',
+      imageHash: '',
+      tokenId: 0,
+      collection: 'mutants',
+      traits: {
+        Background: 'M1 New Punk Blue',
+        Clothes: 'M1 Prison Jumpsuit',
+        Eyes: 'M2 Heart',
+        Mouth: 'M1 Bored Unshaven Dagger',
+        Fur: 'M2 Cheetah',
+        Hat: 'M2 Bayc Flipped Brim',
+        Earring: 'M1 Diamond Stud',
+      },
+    }
+
+    const rarity = await calculateApeScorePoint(ape)
+    expect(rarity).toBe(529.7)
+  })
+
+  test('Cheapest full mutant score', async () => {
+    const ape: Ape = {
+      image: '',
+      imageHash: '',
+      tokenId: 0,
+      collection: 'mutants',
+      traits: {
+        Background: 'M1 Aquamarine',
+        Clothes: 'M1 Navy Striped Tee',
+        Eyes: 'M1 Bored',
+        Mouth: 'M1 Bored',
+        Fur: 'M1 Dark Brown',
+        Hat: 'M1 Beanie',
+        Earring: 'M1 Silver Hoop',
+      },
+    }
+
+    const rarity = await calculateApeScorePoint(ape)
+    expect(rarity).toBe(113.22)
+  })
+
+  test('Expensive full mutant score', async () => {
+    const ape: Ape = {
+      image: '',
+      imageHash: '',
+      tokenId: 0,
+      collection: 'mutants',
+      traits: {
+        Background: 'M2 Blue',
+        Clothes: 'M2 Blue Dress',
+        Eyes: 'M2 Cyborg',
+        Mouth: 'M2 Bored Unshaven Dagger',
+        Fur: 'M2 Solid Gold',
+        Hat: "M2 Trippy Captain's Hat",
+        Earring: 'M2 Cross',
+      },
+    }
+
+    const rarity = await calculateApeScorePoint(ape)
+    expect(rarity).toBe(633.59)
+  })
+
+  test('Random mutant score', async () => {
+    const ape: Ape = {
+      image: '',
+      imageHash: '',
+      tokenId: 0,
+      collection: 'mutants',
+      traits: {
+        Background: 'M1 New Punk Blue',
+        Eyes: 'M2 Heart',
+        Mouth: 'M1 Bored Unshaven Dagger',
+        Fur: 'M2 Cheetah',
+        Earring: 'M1 Diamond Stud',
+      },
+    }
+
+    const rarity = await calculateApeScorePoint(ape)
+    expect(rarity).toBe(372.51)
   })
 })
