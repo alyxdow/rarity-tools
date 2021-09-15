@@ -1,17 +1,32 @@
 .main {
+  @apply bg-dark-800;
+
   &__container {
     @apply h-screen;
-    @apply flex;
+    @apply flex gap-8;
     @apply justify-center items-center;
+  }
+
+  &__form {
+    &-input {
+      @apply border-2;
+      @apply border-green-500 bg-transparent text-white;
+      @apply p-1 px-2;
+    }
+
+    &-submit {
+      @apply ml-4 px-2 py-1;
+      @apply bg-primary text-black;
+    }
   }
 
   &__info {
     @apply text-lg font-bold text-transparent;
     @apply bg-gradient-to-br bg-clip-text;
     @apply from-blue-400 via-primary to-primary-light;
-  }
 
-  &__info--danger {
-    @apply from-red-500 to-orange-500;
+    & --danger {
+      @apply bg-red-500;
+    }
   }
 }
