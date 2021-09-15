@@ -6,6 +6,7 @@ export interface AllTraits {
   Clothes: string[]
   Earring: string[]
   Background: string[]
+  [index: string]: any | string[]
 }
 
 export interface Trait {
@@ -28,4 +29,5 @@ export interface Ape {
   image: string
   imageHash: string
   traits: Trait
+  collection: string
 }
