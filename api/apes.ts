@@ -1,3 +1,4 @@
+import fetch from 'cross-fetch'
 import { Ape } from '~/types'
 import { url, collections } from './config'
 
@@ -12,7 +13,12 @@ export const getApes = async (collection: string) => {
 
   const res = await fetch(`${url}/apes/${collection}.json`)
   const body = await res.json()
-  const apes: Ape[] = body.collection
+  const rawApes: Ape[] = body.collection
+
+  const apes = rawApes.map(ape => ({
+    ...ape,
+    collection,
+  }))
 
   return apes
 }

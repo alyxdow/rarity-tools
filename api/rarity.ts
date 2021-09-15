@@ -1,5 +1,5 @@
 import { getTraits, sumTraits } from '~/api/traits'
-import { AllTraits } from '~/types'
+import { AllTraits, Ape, Trait } from '~/types'
 import { getNumberOfApes } from './apes'
 
 /**
@@ -19,11 +19,37 @@ export const calculateRarity = async <TraitName extends keyof AllTraits>(
   const numberOfApes = await getNumberOfApes(collectionName)
   if (!traits || !numberOfApes) return
 
+  if (!traits[traitName]) return
   const allTraitsCount = sumTraits(traits[traitName])
+
   const timesRepeated = allTraitsCount[traitValue]
+  if (!timesRepeated) return
 
   const rawRarity = +(numberOfApes / timesRepeated)
   const rarity = rawRarity >= 100 ? 100 : rawRarity.toFixed(2)
 
-  return rarity
+  return +rarity
+}
+
+/**
+ * Method to calculate the rarity of all traits on a ape
+ * @param ape ape to be evaluated
+ * @returns an object with all traits rarity
+ */
+
+export const calculateApeRarity = async (ape: Ape) => {
+  const apeTraits: any = ape.traits
+  const apeCollection = ape.collection
+  const apeTraitsRarities: any = {}
+
+  for (const key in apeTraits) {
+    const trait = apeTraits[key]
+    const traitRarity = await calculateRarity(apeCollection, key, trait)
+
+    if (traitRarity) {
+      apeTraitsRarities[key] = traitRarity
+    }
+  }
+
+  return apeTraitsRarities
 }
