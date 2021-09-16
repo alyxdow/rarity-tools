@@ -1,6 +1,7 @@
 import { defineComponent, ref, watch } from '@nuxtjs/composition-api'
 import { getApe } from '~/api/apes'
 import { calculateApeRarity, calculateApeScorePoint } from '~/api/rarity'
+import { collections } from '~/api/config'
 
 export default defineComponent({
   setup() {
@@ -14,7 +15,7 @@ export default defineComponent({
     const filter = async () => {
       loading.value = true
 
-      ape.value = await getApe('bored', +apeId.value)
+      ape.value = await getApe(collections[0], +apeId.value)
       if (!ape.value) return (error.value = true)
 
       apeRarity.value = await calculateApeRarity(ape.value)

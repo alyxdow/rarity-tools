@@ -31,3 +31,8 @@ export interface Ape {
   traits: Trait
   collection: string
 }
+
+export interface Collection {
+  name: string
+  value: string
+}

@@ -1,4 +1,4 @@
-import { AllTraits } from '~/types'
+import { AllTraits, Collection } from '~/types'
 import { getApes } from './apes'
 
 /**
@@ -7,7 +7,7 @@ import { getApes } from './apes'
  * @returns an array with the traits
  */
 
-export const getTraits = async (collection: string) => {
+export const getTraits = async (collection: Collection) => {
   const apes = await getApes(collection)
   if (!apes) return false
 

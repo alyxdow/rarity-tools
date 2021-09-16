@@ -13,4 +13,14 @@ export const url = dev ? 'http://localhost:3000' : ''
  * |--------------------------------------------------------------------------------------------------------------------------|
  */
 
-export const collections = ['bored', 'mutants']
+export const collections = [
+  {
+    name: 'Bored Ape Tron Club',
+    value: 'bored',
+  },
+
+  {
+    name: 'Mutant Ape Tron Club',
+    value: 'mutants',
+  },
+]

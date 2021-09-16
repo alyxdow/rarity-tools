@@ -1,6 +1,6 @@
 import fetch from 'cross-fetch'
 import { filter } from 'lodash'
-import { Ape } from '~/types'
+import { Ape, Collection } from '~/types'
 import { url, collections } from './config'
 
 /**
@@ -9,10 +9,10 @@ import { url, collections } from './config'
  * @returns an array with the apes
  */
 
-export const getApes = async (collection: string) => {
+export const getApes = async (collection: Collection) => {
   if (!collections.includes(collection)) return false
 
-  const res = await fetch(`${url}/apes/${collection}.json`)
+  const res = await fetch(`${url}/apes/${collection.value}.json`)
   const body = await res.json()
   const rawApes: Ape[] = body.collection
 
@@ -31,7 +31,7 @@ export const getApes = async (collection: string) => {
  * @returns the ape that corresponds to id
  */
 
-export const getApe = async (collection: string, apeId: string | number) => {
+export const getApe = async (collection: Collection, apeId: string | number) => {
   const allApes = await getApes(collection)
   if (!allApes) return
 
@@ -47,7 +47,7 @@ export const getApe = async (collection: string, apeId: string | number) => {
  * @returns a number that represents the number of apes
  */
 
-export const getNumberOfApes = async (collection: string) => {
+export const getNumberOfApes = async (collection: Collection) => {
   const apes = await getApes(collection)
   if (!apes) return
 

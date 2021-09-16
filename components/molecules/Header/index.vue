@@ -5,7 +5,7 @@
       <img src="~/assets/svg/logo-mobile.svg" class="header__logo-img header__logo-img--mobile" alt="Logo" />
     </div>
 
-    <form class="header__form" @submit.prevent>
+    <form class="header__form" @submit.prevent="evaluateApe">
       <div class="header__form-field">
         <label class="header__form-label" for="header-select">Select Collection</label>
         <VSelect
@@ -21,7 +21,7 @@
       <div class="header__form-field">
         <label class="header__form-label" for="header-input">ID...</label>
         <div class="header__form-id">
-          <input type="number" class="header__form-input" id="header-input" placeholder="268" />
+          <input type="number" class="header__form-input" id="header-input" v-model="apeId" placeholder="268" />
           <input type="submit" class="header__form-submit" value="Lookup" />
         </div>
       </div>
