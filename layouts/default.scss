@@ -1,0 +1,6 @@
+body {
+  @apply font-body text-mobile leading-base;
+  @apply md:(
+    text-desktop
+  );
+}

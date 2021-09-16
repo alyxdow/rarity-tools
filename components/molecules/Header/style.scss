@@ -1,0 +1,138 @@
+/*----------------------------------------------------------------------------------------------------------------------------|
+| Header                                                                                                                      |
+|----------------------------------------------------------------------------------------------------------------------------*/
+
+.header {
+  @apply md:(
+    flex gap-x-24 items-center
+    py-2
+  );
+
+  @apply lg:(
+    grid grid-cols-3 gap-x-12
+    py-4
+  );
+
+  &__logo {
+    @apply py-[10px] pl-[19px] mb-[30px];
+    @apply shadow-header;
+
+    @apply md:(
+      shadow-none
+      mb-0 py-1
+    );
+
+    &-img {
+      &--mobile {
+        @apply w-16 h-5;
+        @apply md:hidden;
+      }
+
+      &--desktop {
+        @apply w-[150px];
+        @apply hidden md:flex;
+      }
+    }
+  }
+
+  &__form {
+    @apply flex flex-col;
+
+    @apply md:(
+      flex-row items-center
+      gap-x-[9px]
+      h-12
+    );
+
+    &-field {
+      @apply flex flex-col;
+      @apply mx-[21px] mb-[10px];
+
+      @apply md:(
+        mx-0 mb-0 h-11
+      );
+    }
+
+    &-label {
+      @apply mb-[10px];
+      @apply font-info;
+
+      @apply md:hidden;
+    }
+
+    &-select {
+      @apply w-full;
+      @apply border-none outline-none;
+      @apply bg-gray-light;
+      @apply rounded;
+
+      @apply md:(
+        h-full
+        w-[230px]
+      );
+    }
+
+    &-id {
+      @apply relative;
+      @apply h-full;
+    }
+
+    &-input {
+      @apply py-[13px] px-[20px] w-[281px] h-[34px];
+      @apply border-none outline-none;
+      @apply bg-gray-light;
+      @apply rounded;
+      @apply relative z-10;
+      @apply font-info;
+
+      @apply 3sm:w-[80%];
+      @apply 2sm:w-[82%];
+      @apply sm:w-[90%];
+      @apply md:(w-[150px] h-full);
+      @apply lg:pt-[16px];
+    }
+
+    &-submit {
+      @apply absolute;
+      @apply right-0 bottom-0 h-full w-[32%] pr-[15px];
+      @apply text-right font-bold leading-semibold;
+      @apply bg-primary-light;
+      @apply cursor-pointer;
+
+      @apply 3sm:pr-[10px];
+      @apply md:(
+        -right-[82px]
+        w-[84px]
+      );
+    }
+  }
+}
+
+/*----------------------------------------------------------------------------------------------------------------------------|
+| Vue Select                                                                                                                  |
+|----------------------------------------------------------------------------------------------------------------------------*/
+
+.v-select .vs {
+  &__dropdown-toggle {
+    @apply py-2 pl-[20px] pr-[15px];
+    @apply h-[34px];
+    @apply border-none;
+
+    @apply md:(
+      h-full
+    );
+  }
+
+  &__selected {
+    @apply m-0 p-0;
+
+    &-options {
+      @apply p-0;
+      @apply flex items-center;
+    }
+  }
+
+  &__actions {
+    @apply md:pt-0;
+  }
+}

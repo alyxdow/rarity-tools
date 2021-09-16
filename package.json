@@ -13,10 +13,12 @@
   "dependencies": {
     "@nuxtjs/axios": "^5.13.6",
     "@nuxtjs/pwa": "^3.3.5",
+    "@types/vue-select": "^3.11.2",
     "core-js": "^3.15.1",
     "cross-fetch": "^3.1.4",
     "lodash": "^4.17.21",
-    "nuxt": "^2.15.7"
+    "nuxt": "^2.15.7",
+    "vue-select": "^3.13.0"
   },
   "devDependencies": {
     "@nuxt/types": "^2.15.7",
