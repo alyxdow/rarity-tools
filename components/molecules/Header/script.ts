@@ -20,6 +20,8 @@ export default defineComponent({
     const apeRarity = ref()
 
     const evaluateApe = async () => {
+      if (!apeId.value) return alert(`Ape ID don't specified`)
+
       const selectedCollection = filter(allCollections, { name: collection.value })[0]
 
       ape.value = await getApe(selectedCollection, +apeId.value)
