@@ -1,6 +1,6 @@
 import { sum, values } from 'lodash'
 import { getTraits, sumTraits } from '~/api/traits'
-import { AllTraits, Ape } from '~/types'
+import { AllTraits, Ape, Collection } from '~/types'
 import { getNumberOfApes } from './apes'
 
 /**
@@ -12,7 +12,7 @@ import { getNumberOfApes } from './apes'
  */
 
 export const calculateRarity = async <TraitName extends keyof AllTraits>(
-  collectionName: string,
+  collectionName: Collection,
   traitName: TraitName,
   traitValue: string
 ) => {

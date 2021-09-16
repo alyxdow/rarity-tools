@@ -6,7 +6,7 @@ const ape: Ape = {
   image: '',
   imageHash: '',
   tokenId: 0,
-  collection: '',
+  collection: { value: '' },
   traits: {
     Background: '',
     Clothes: '',
@@ -20,29 +20,29 @@ const ape: Ape = {
 
 describe('Trait rarity', () => {
   test('Bored blue background', async () => {
-    const rarity = await calculateRarity('bored', 'Background', 'Blue')
+    const rarity = await calculateRarity({ value: 'bored' }, 'Background', 'Blue')
     expect(rarity).toBe(8.08)
   })
 
   test('Bored bloodshot eyes', async () => {
-    const rarity = await calculateRarity('bored', 'Eyes', 'Bloodshot')
+    const rarity = await calculateRarity({ value: 'bored' }, 'Eyes', 'Bloodshot')
     expect(rarity).toBe(11.9)
   })
 
   test('Mutant M1 sad eyes', async () => {
-    const rarity = await calculateRarity('mutants', 'Eyes', 'M1 Sad')
+    const rarity = await calculateRarity({ value: 'mutants' }, 'Eyes', 'M1 Sad')
     expect(rarity).toBe(25.19)
   })
 
   test('Mutant M2 bored mouth', async () => {
-    const rarity = await calculateRarity('mutants', 'Mouth', 'M2 Bored')
+    const rarity = await calculateRarity({ value: 'mutants' }, 'Mouth', 'M2 Bored')
     expect(rarity).toBe(19.62)
   })
 })
 
 describe('Ape rarity', () => {
   test('Simple bored ape', async () => {
-    ape.collection = 'bored'
+    ape.collection.value = 'bored'
     ape.traits = {
       Background: 'Blue',
       Clothes: 'Striped Tee',
@@ -62,7 +62,7 @@ describe('Ape rarity', () => {
   })
 
   test('Simple mutant ape', async () => {
-    ape.collection = 'mutants'
+    ape.collection.value = 'mutant'
     ape.traits = {
       Background: 'M2 Blue',
       Clothes: 'M1 Striped Tee',
@@ -88,7 +88,7 @@ describe('Ape rarity', () => {
      * Expect the code to remove this value and count the other ones
      */
 
-    ape.collection = 'bored'
+    ape.collection.value = 'bored'
     ape.traits = {
       Background: 'Blue',
       Clothes: 'wrong value here',
@@ -111,7 +111,7 @@ describe('Ape rarity', () => {
       image: '',
       imageHash: '',
       tokenId: 0,
-      collection: 'mutants',
+      collection: { value: 'mutants' },
       traits: {
         WrongName: 'random value',
         Background: 'M2 Purple',
@@ -133,7 +133,7 @@ describe('Ape rarity', () => {
 
 describe('Ape points', () => {
   test('Random full bored score', async () => {
-    ape.collection = 'bored'
+    ape.collection.value = 'mutants'
     ape.traits = {
       Background: 'Yellow',
       Clothes: 'Striped Tee',
@@ -149,7 +149,7 @@ describe('Ape points', () => {
   })
 
   test('Random bored score', async () => {
-    ape.collection = 'bored'
+    ape.collection.value = 'mutants'
     ape.traits = {
       Background: 'Yellow',
       Clothes: 'Striped Tee',
@@ -164,7 +164,7 @@ describe('Ape points', () => {
   })
 
   test('Cheapest full bored ape', async () => {
-    ape.collection = 'bored'
+    ape.collection.value = 'mutants'
     ape.traits = {
       Background: 'Yellow',
       Clothes: 'Striped Tee',
@@ -180,7 +180,7 @@ describe('Ape points', () => {
   })
 
   test('Expensive full bored ape', async () => {
-    ape.collection = 'bored'
+    ape.collection.value = 'mutants'
     ape.traits = {
       Background: 'Dark Blue',
       Clothes: 'Dark Suit',
@@ -196,7 +196,9 @@ describe('Ape points', () => {
   })
 
   test('Random full mutant score', async () => {
-    ape.collection = 'mutants'
+    ape.collection = {
+      value: 'mutants',
+    }
     ape.traits = {
       Background: 'M1 New Punk Blue',
       Clothes: 'M1 Prison Jumpsuit',
@@ -212,20 +214,16 @@ describe('Ape points', () => {
   })
 
   test('Cheapest full mutant score', async () => {
-    const ape: Ape = {
-      image: '',
-      imageHash: '',
-      tokenId: 0,
-      collection: 'mutants',
-      traits: {
-        Background: 'M1 Aquamarine',
-        Clothes: 'M1 Navy Striped Tee',
-        Eyes: 'M1 Bored',
-        Mouth: 'M1 Bored',
-        Fur: 'M1 Dark Brown',
-        Hat: 'M1 Beanie',
-        Earring: 'M1 Silver Hoop',
-      },
+    ape.collection.value = 'mutants'
+
+    ape.traits = {
+      Background: 'M1 Aquamarine',
+      Clothes: 'M1 Navy Striped Tee',
+      Eyes: 'M1 Bored',
+      Mouth: 'M1 Bored',
+      Fur: 'M1 Dark Brown',
+      Hat: 'M1 Beanie',
+      Earring: 'M1 Silver Hoop',
     }
 
     const rarity = await calculateApeScorePoint(ape)
@@ -233,20 +231,15 @@ describe('Ape points', () => {
   })
 
   test('Expensive full mutant score', async () => {
-    const ape: Ape = {
-      image: '',
-      imageHash: '',
-      tokenId: 0,
-      collection: 'mutants',
-      traits: {
-        Background: 'M2 Blue',
-        Clothes: 'M2 Blue Dress',
-        Eyes: 'M2 Cyborg',
-        Mouth: 'M2 Bored Unshaven Dagger',
-        Fur: 'M2 Solid Gold',
-        Hat: "M2 Trippy Captain's Hat",
-        Earring: 'M2 Cross',
-      },
+    ape.collection.value = 'mutants'
+    ape.traits = {
+      Background: 'M2 Blue',
+      Clothes: 'M2 Blue Dress',
+      Eyes: 'M2 Cyborg',
+      Mouth: 'M2 Bored Unshaven Dagger',
+      Fur: 'M2 Solid Gold',
+      Hat: "M2 Trippy Captain's Hat",
+      Earring: 'M2 Cross',
     }
 
     const rarity = await calculateApeScorePoint(ape)
@@ -254,7 +247,7 @@ describe('Ape points', () => {
   })
 
   test('Random mutant score', async () => {
-    ape.collection = 'mutants'
+    ape.collection.value = 'mutants'
     ape.traits = {
       Background: 'M1 New Punk Blue',
       Eyes: 'M2 Heart',

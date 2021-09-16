@@ -1,5 +1,5 @@
 import fetch from 'cross-fetch'
-import { filter } from 'lodash'
+import { filter, map, values } from 'lodash'
 import { Ape, Collection } from '~/types'
 import { url, collections } from './config'
 
@@ -10,7 +10,8 @@ import { url, collections } from './config'
  */
 
 export const getApes = async (collection: Collection) => {
-  if (!collections.includes(collection)) return false
+  const allCollections = values(map(collections, 'value'))
+  if (!allCollections.includes(collection.value)) return
 
   const res = await fetch(`${url}/apes/${collection.value}.json`)
   const body = await res.json()

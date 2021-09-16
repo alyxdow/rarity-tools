@@ -29,10 +29,10 @@ export interface Ape {
   image: string
   imageHash: string
   traits: Trait
-  collection: string
+  collection: Collection
 }
 
 export interface Collection {
-  name: string
+  name?: string
   value: string
 }
