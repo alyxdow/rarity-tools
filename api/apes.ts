@@ -36,7 +36,7 @@ export const getApe = async (collection: Collection, apeId: string | number) => 
   const allApes = await getApes(collection)
   if (!allApes) return
 
-  const ape = filter(allApes, { tokenId: apeId })[0]
+  const ape = filter(allApes, { tokenId: +apeId })[0]
   if (!ape) return console.log(`Error, cannot find ${apeId}`)
 
   return ape
