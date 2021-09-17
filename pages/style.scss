@@ -1,0 +1,31 @@
+.main {
+  &__tabs {
+    @apply bg-gray-light mb-[40px];
+
+    &-list {
+      @apply flex justify-center gap-x-9;
+    }
+
+    &-item {
+      @apply py-3;
+      @apply cursor-pointer;
+
+      &--active {
+        @apply border-b-black border-b-2;
+        @apply rounded-sm;
+      }
+    }
+  }
+
+  &__gallery {
+    @apply mx-6;
+
+    &-image {
+      @apply mb-[40px];
+
+      & img {
+        @apply w-full h-auto;
+      }
+    }
+  }
+}

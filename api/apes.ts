@@ -1,5 +1,5 @@
 import fetch from 'cross-fetch'
-import { filter, map, values } from 'lodash'
+import { filter, map, shuffle, values } from 'lodash'
 import { Ape, Collection } from '~/types'
 import { url, collections } from './config'
 
@@ -13,7 +13,7 @@ export const getApes = async (collection: Collection) => {
   const allCollections = values(map(collections, 'value'))
   if (!allCollections.includes(collection.value)) return
 
-  const res = await fetch(`${url}/apes/${collection.value}.json`)
+  const res = await fetch(`${url}/apes/collections/${collection.value}.json`)
   const body = await res.json()
   const rawApes: Ape[] = body.collection
 
@@ -53,4 +53,18 @@ export const getNumberOfApes = async (collection: Collection) => {
   if (!apes) return
 
   return apes.length
+}
+
+/**
+ * Method to get a number of random apes from a specified collection
+ * @param collection collection name to get the apes
+ * @param numberOfApes number of random apes generated
+ * @returns an array of random apes of a specified collection
+ */
+
+export const getRandomApes = async (collection: Collection, numberOfApes: number) => {
+  const apes = await getApes(collection)
+  const randomApes = shuffle(apes).slice(0, numberOfApes)
+
+  return randomApes
 }
