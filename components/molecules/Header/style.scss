@@ -37,16 +37,24 @@
 
   &__form {
     @apply flex flex-col;
+    @apply my-[90px] mx-[26px];
 
     @apply md:(
       flex-row items-center
       gap-x-[9px]
-      h-12
+      h-12 my-0
     );
+
+    &-title {
+      @apply text-desktop font-info font-semi-bold leading-[25.36px];
+      @apply mb-[21px];
+
+      @apply md:hidden;
+    }
 
     &-field {
       @apply flex flex-col;
-      @apply mx-[21px] mb-[10px];
+      @apply mb-[10px];
 
       @apply md:(
         mx-0 mb-0 h-11
@@ -55,7 +63,7 @@
 
     &-label {
       @apply mb-[10px];
-      @apply font-info;
+      @apply font-info font-semibold leading-[12.68px];
 
       @apply md:hidden;
     }
@@ -70,6 +78,7 @@
         h-full
         w-[230px]
       );
+      @apply 2md:w-[260px];
     }
 
     &-id {
@@ -88,8 +97,9 @@
       @apply 3sm:w-[80%];
       @apply 2sm:w-[82%];
       @apply sm:w-[90%];
-      @apply md:(w-[150px] h-full);
-      @apply lg:pt-[16px];
+      @apply md:(w-[130px] h-full);
+      @apply 2md:(w-[180px]);
+      @apply lg:(pt-[16px]);
     }
 
     &-submit {
@@ -99,7 +109,7 @@
       @apply bg-primary-light;
       @apply cursor-pointer;
 
-      @apply 3sm:pr-[10px];
+      @apply 3sm:pr-[13px];
       @apply md:(
         -right-[82px]
         w-[84px]

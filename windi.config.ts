@@ -17,6 +17,7 @@ export default defineConfig({
       screens: {
         '3sm': { max: '380px' },
         '2sm': { min: '381px' },
+        '2md': { min: '832px' },
       },
 
       boxShadow: {
@@ -35,7 +36,7 @@ export default defineConfig({
       },
 
       fontWeight: {
-        semibold: 500,
+        'semi-bold': 600,
       },
 
       lineHeight: {

@@ -1,4 +1,4 @@
-import { defineComponent, ref, reactive, useStore, useFetch } from '@nuxtjs/composition-api'
+import { defineComponent, ref, useStore } from '@nuxtjs/composition-api'
 import { filter } from 'lodash'
 import { collections as allCollections } from '~/api/config'
 
