@@ -1,4 +1,4 @@
-import { defineComponent, ref, useFetch } from '@nuxtjs/composition-api'
+import { defineComponent, ref, onMounted } from '@nuxtjs/composition-api'
 import { filter } from 'lodash'
 import { getRandomApes } from '~/api/apes'
 import { collections } from '~/api/config'
@@ -16,7 +16,7 @@ export default defineComponent({
       randomApes.value = await getRandomApes(selectedCollection.value, 9)
     }
 
-    useFetch(() => {
+    onMounted(() => {
       toggleCollection('Bored Ape Tron Club')
     })
 
