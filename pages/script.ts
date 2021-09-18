@@ -13,7 +13,15 @@ export default defineComponent({
       actualCollection.value = collectionName
       selectedCollection.value = filter(collections, { name: actualCollection.value })[0]
 
-      randomApes.value = await getRandomApes(selectedCollection.value, 9)
+      randomApes.value = await getRandomApes(selectedCollection.value, 3)
+      getMoreRandomApes(6) // The image loading was too slow, divide this request made it faster
+    }
+
+    const getMoreRandomApes = (numberOfApes: number) => {
+      setTimeout(async () => {
+        const newApes = await getRandomApes(selectedCollection.value, numberOfApes)
+        randomApes.value = [...randomApes.value, ...newApes]
+      }, 100)
     }
 
     onMounted(() => {
