@@ -1,0 +1,19 @@
+.toast {
+  @apply bg-primary-light;
+  @apply rounded;
+  @apply pl-3 pr-10 py-3;
+  @apply relative;
+
+  &__text {
+    @apply text-desktop font-semibold;
+  }
+
+  &__info {
+    @apply absolute -right-11 top-[50%];
+    @apply transform -translate-y-[50%];
+    @apply bg-black text-white;
+    @apply py-1 px-2 min-w-14;
+    @apply flex justify-center;
+    @apply rounded;
+  }
+}
