@@ -19,10 +19,12 @@
 
   &__gallery {
     @apply mx-6;
+    @apply grid gap-[40px];
+
+    @apply md:grid-cols-2;
+    @apply lg:grid-cols-3;
 
     &-image {
-      @apply mb-[40px];
-
       & img {
         @apply w-full h-auto;
       }

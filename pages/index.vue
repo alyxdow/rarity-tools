@@ -9,6 +9,7 @@
           }"
           v-for="collection in collections"
           :key="collection.value"
+          @click="toggleCollection(collection.name)"
         >
           {{ collection.name }}
         </li>
@@ -16,7 +17,7 @@
     </div>
 
     <div class="main__gallery">
-      <div class="main__gallery-img" v-for="ape in randomApes" :key="ape.tokenId">
+      <div class="main__gallery-image" v-for="ape in randomApes" :key="ape.tokenId">
         <img :src="ape.image" alt="ape" />
       </div>
     </div>
