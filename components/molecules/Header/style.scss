@@ -5,12 +5,12 @@
 .header {
   @apply md:(
     flex gap-x-24 items-center
-    py-2
+    py-4
   );
 
   @apply lg:(
     grid grid-cols-3 gap-x-12
-    py-4
+    py-4 px-10
   );
 
   &__logo {
