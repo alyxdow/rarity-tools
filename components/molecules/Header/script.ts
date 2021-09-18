@@ -11,11 +11,13 @@ export default defineComponent({
     const collections = ref(getters.collectionsNames)
     const selectedCollection = filter(allCollections, { name: collection.value })[0]
 
-    const evaluateApe = async () => {
+    const evaluateApe = () => {
       dispatch('evaluateApe', {
         apeId: apeId.value,
         collection: selectedCollection,
       })
+
+      apeId.value = null
     }
 
     return { collections, collection, evaluateApe, apeId }

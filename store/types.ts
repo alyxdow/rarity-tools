@@ -8,9 +8,6 @@ export interface State {
   apeRarity   : null | Trait  
 
   collections : Collection[]
-
-  loading     : boolean
-  error       : boolean
 }
 
 export interface Getters {
@@ -20,14 +17,12 @@ export interface Getters {
 // prettier-ignore
 export enum Mutations {
   SET_APE      = 'SET_APE'     ,
-  SET_PROGRESS = 'SET_PROGRESS',
 }
 
 export type RootType = ReturnType<() => State>
 
 export interface MutationsInterface extends MutationTree<RootType> {
   [Mutations.SET_APE](s: State, p: any): void
-  [Mutations.SET_PROGRESS](s: State, p: any): void
 }
 
 export interface Actions {

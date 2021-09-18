@@ -11,9 +11,6 @@ export const state = (): State => ({
   apeScore    : null,
 
   collections : collections,
-
-  loading     : false,
-  error       : false
 })
 
 export const getters: Getters = {
@@ -26,37 +23,24 @@ export const mutations: MutationsInterface = {
     state.apeRarity = apeInfo.apeRarity
     state.apeScore = apeInfo.apeScore
   },
-
-  [Mutations.SET_PROGRESS](state, progress) {
-    state.error = false
-
-    while (!progress) {
-      state.loading = true
-    }
-
-    if (progress == null) return (state.error = true)
-
-    state.loading = false
-  },
 }
 
 export const actions: Actions = {
   async evaluateApe({ commit }: any, apeInfo) {
-    commit(Mutations.SET_PROGRESS, false)
-
     const ape = await getApe(apeInfo.collection, apeInfo.apeId)
-    if (!ape) return commit(Mutations.SET_PROGRESS, null)
+    if (!ape) return alert(`Ape ${apeInfo.apeId} not found`)
 
     const apeRarity = await calculateApeRarity(ape)
     const apeScore = await calculateApeScorePoint(ape)
 
-    const apeData = {
-      ape,
-      apeRarity,
-      apeScore,
-    }
+    if (apeRarity && apeScore && ape) {
+      const apeData = {
+        ape,
+        apeRarity,
+        apeScore,
+      }
 
-    commit(Mutations.SET_APE, apeData)
-    commit(Mutations.SET_PROGRESS, true)
+      commit(Mutations.SET_APE, apeData)
+    }
   },
 }
