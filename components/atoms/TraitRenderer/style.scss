@@ -1,0 +1,33 @@
+.trait {
+  @apply mt-5;
+  @apply relative;
+
+  &__name {
+    @apply font-semibold;
+  }
+
+  &__content {
+    @apply bg-gray-light;
+    @apply flex justify-between;
+    @apply mt-1;
+  }
+
+  &__value {
+    @apply px-2 py-1;
+    @apply font-semibold;
+  }
+
+  &__count {
+    @apply bg-primary-light;
+    @apply flex justify-center items-center;
+    @apply w-10;
+    @apply rounded font-semibold;
+
+    @apply md:w-16;
+  }
+
+  &__score {
+    @apply absolute top-0 right-0;
+    @apply text-primary font-semibold;
+  }
+}
