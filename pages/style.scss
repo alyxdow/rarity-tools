@@ -1,6 +1,7 @@
 .main {
   &__tabs {
     @apply bg-gray-light mb-[40px];
+    @apply sticky top-0;
 
     &-list {
       @apply flex justify-center gap-x-9;
@@ -18,7 +19,7 @@
   }
 
   &__gallery {
-    @apply mx-6;
+    @apply mx-6 pb-12;
     @apply grid gap-[40px];
 
     @apply md:grid-cols-2;
