@@ -107,7 +107,7 @@
       @apply right-0 bottom-0 h-full w-[32%] pr-[15px];
       @apply text-right font-bold leading-semibold;
       @apply bg-primary-light;
-      @apply cursor-pointer;
+      @apply cursor-pointer rounded;
 
       @apply 3sm:pr-[13px];
       @apply md:(
