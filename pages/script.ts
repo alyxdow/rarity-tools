@@ -1,4 +1,4 @@
-import { defineComponent, ref, onMounted } from '@nuxtjs/composition-api'
+import { defineComponent, ref, onMounted, useContext, computed } from '@nuxtjs/composition-api'
 import { filter } from 'lodash'
 import { getRandomApes } from '~/api/apes'
 import { collections } from '~/api/config'
@@ -28,6 +28,9 @@ export default defineComponent({
       toggleCollection('Bored Ape Tron Club')
     })
 
-    return { randomApes, actualCollection, collections, toggleCollection }
+    const { store } = useContext()
+    const showApe = computed(() => store.state.ape)
+
+    return { randomApes, actualCollection, collections, toggleCollection, showApe }
   },
 })
