@@ -34,7 +34,7 @@
   }
 
   &__image img {
-    @apply mx-4 mt-[15px];
+    @apply mt-[15px];
 
     @apply md:mx-auto;
     @apply lg:max-w-86;
@@ -46,7 +46,9 @@
     @apply mx-4 mt-3 max-w-[631px];
     @apply text-desktop font-semibold;
 
-    @apply md:mx-auto;
+    @apply md:(mx-auto w-[646px]);
+    @apply lg:w-86;
+    @apply xl:w-125;
   }
 
   &__cta {
@@ -80,8 +82,9 @@
   }
 
   &__left {
-    @apply flex flex-col justify-center pb-36;
+    @apply flex flex-col justify-center;
 
+    @apply lg:pb-36;
     @apply xl:pb-72;
   }
 
