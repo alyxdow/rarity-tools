@@ -1,7 +1,7 @@
 .main {
   &__tabs {
     @apply bg-gray-light mb-[40px];
-    @apply sticky top-0;
+    @apply sticky top-0 z-10;
 
     &-list {
       @apply flex justify-center gap-x-9;
