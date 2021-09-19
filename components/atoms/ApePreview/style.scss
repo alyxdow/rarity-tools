@@ -1,0 +1,49 @@
+.preview {
+  @apply relative;
+  @apply overflow-hidden;
+  @apply rounded-2xl;
+
+  &:hover {
+    & img {
+      @apply transform scale-110;
+    }
+  }
+
+  &__image {
+    &-image {
+      @apply duration-300;
+    }
+  }
+
+  &__container {
+    @apply absolute top-0 left-0;
+    @apply h-full w-full pb-5 pl-3;
+    @apply bg-gradient-to-b from-transparent to-black;
+    @apply flex flex-col justify-end;
+    @apply opacity-0 hover:opacity-100;
+    @apply duration-300;
+  }
+
+  &__id {
+    @apply bg-black text-primary;
+    @apply absolute top-3 left-3;
+    @apply p-1 px-2;
+    @apply rounded;
+  }
+
+  &__content {
+    @apply text-white font-semibold;
+  }
+
+  &__name {
+    @apply text-base;
+  }
+
+  &__score {
+    @apply text-xs;
+
+    &-score {
+      @apply text-primary;
+    }
+  }
+}

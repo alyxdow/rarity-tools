@@ -23,7 +23,7 @@
 
       <div class="main__gallery">
         <div class="main__gallery-image" v-for="ape in randomApes" :key="ape.tokenId">
-          <img :src="ape.image" alt="ape" />
+          <ApePreview :ape="ape" />
         </div>
       </div>
     </div>
