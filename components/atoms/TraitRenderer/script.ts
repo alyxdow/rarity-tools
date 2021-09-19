@@ -17,8 +17,6 @@ export default defineComponent({
 
     useFetch(async () => {
       count.value = await getTraitNumberOfRepetitions(store.state.ape.collection, traitName, traitValue)
-
-      console.log({ [traitValue]: count.value })
     })
 
     return { traitName, traitValue, rarity, count }
