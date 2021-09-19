@@ -1,0 +1,34 @@
+<template>
+  <div class="main">
+    <transition v-if="showApe" name="ape" appear>
+      <Ape />
+    </transition>
+
+    <div v-else>
+      <div class="main__tabs">
+        <ul class="main__tabs-list">
+          <li
+            class="main__tabs-item"
+            :class="{
+              'main__tabs-item--active': actualCollection === collection.name,
+            }"
+            v-for="collection in collections"
+            :key="collection.value"
+            @click="toggleCollection(collection.name)"
+          >
+            {{ collection.name }}
+          </li>
+        </ul>
+      </div>
+
+      <div class="main__gallery">
+        <div class="main__gallery-image" v-for="ape in randomApes" :key="ape.tokenId">
+          <ApePreview :ape="ape" />
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script lang="ts" src="./script.ts"></script>
+<style lang="scss" src="./style.scss"></style>
