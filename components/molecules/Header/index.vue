@@ -1,6 +1,6 @@
 <template>
   <header class="header">
-    <div class="header__logo">
+    <div class="header__logo" @click="goHome">
       <img src="~/assets/svg/logo-desktop.svg" class="header__logo-img header__logo-img--desktop" alt="Logo" />
       <img src="~/assets/svg/logo-mobile.svg" class="header__logo-img header__logo-img--mobile" alt="Logo" />
     </div>

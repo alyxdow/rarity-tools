@@ -15,7 +15,7 @@
 
   &__logo {
     @apply py-[10px] pl-[19px] mb-[30px];
-    @apply shadow-header;
+    @apply shadow-header cursor-pointer;
 
     @apply md:(
       shadow-none

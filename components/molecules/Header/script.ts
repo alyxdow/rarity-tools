@@ -1,4 +1,4 @@
-import { defineComponent, ref, useStore } from '@nuxtjs/composition-api'
+import { defineComponent, ref, useContext, useStore } from '@nuxtjs/composition-api'
 import { filter } from 'lodash'
 import { collections as allCollections } from '~/api/config'
 import { Mutations } from '~/store/types'
@@ -23,6 +23,12 @@ export default defineComponent({
       apeId.value = null
     }
 
-    return { collections, collection, evaluateApe, apeId }
+    const { redirect } = useContext()
+    const goHome = () => {
+      commit(Mutations.CLEAR_APE_INFO)
+      redirect('/')
+    }
+
+    return { collections, collection, evaluateApe, apeId, goHome }
   },
 })
