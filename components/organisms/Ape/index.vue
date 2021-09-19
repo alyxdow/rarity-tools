@@ -23,11 +23,12 @@
           <span class="ape__name-id">ID {{ ape.tokenId }}</span>
         </div>
 
-        <a class="ape__cta" :href="`https://boredapetronclub.com/ape/${ape.tokenId}`" target="_blank">
+        <a class="ape__cta" :href="`https://boredapetronclub.com/ape/${ape.tokenId}#${collection}`" target="_blank">
           <img src="~/assets/svg/bored-ape-logo.svg" class="ape__cta-image" alt="bored ape" />
           <div class="ape__cta-content">
             <span class="ape__cta-text">View on Bored Ape Tron Club</span>
-            <span class="ape__cta-price">199.99 ETH</span>
+            <!-- <span class="ape__cta-price">199.99 ETH</span> -->
+            <div></div>
           </div>
         </a>
       </div>

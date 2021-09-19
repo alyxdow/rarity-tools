@@ -9,6 +9,11 @@ export default defineComponent({
 
     const ape = computed(() => store.state.ape)
     const apeScore = computed(() => store.state.apeScore)
+    const collections: any = {
+      bored: 'default',
+      mutants: 'mutant',
+    }
+    const collection = computed(() => collections[store.state.ape.collection.value])
 
     const traits: Ref<any[]> = ref([])
     for (const key in ape.value.traits) {
@@ -21,6 +26,6 @@ export default defineComponent({
       store.commit(Mutations.CLEAR_APE_INFO)
     }
 
-    return { error, ape, traits, apeScore, clearApe }
+    return { error, ape, traits, apeScore, clearApe, collection }
   },
 })

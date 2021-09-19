@@ -69,12 +69,12 @@
     &-text {
       @apply xl:(
         relative right-[50%]
-        transform translate-x-[50%]
       );
     }
 
     &-price {
       @apply text-primary;
+      @apply w-16;
     }
   }
 
