@@ -1,4 +1,5 @@
-import { defineComponent, ref, useContext, computed } from '@nuxtjs/composition-api'
+import { defineComponent, ref, Ref, useContext, computed } from '@nuxtjs/composition-api'
+import { Mutations } from '~/store/types'
 
 export default defineComponent({
   setup() {
@@ -9,12 +10,17 @@ export default defineComponent({
     const ape = computed(() => store.state.ape)
     const apeScore = computed(() => store.state.apeScore)
 
-    const traits: any[] = []
+    const traits: Ref<any[]> = ref([])
     for (const key in ape.value.traits) {
       const trait = ape.value.traits[key]
-      traits.push({ [key]: trait })
+      if (trait) traits.value.push({ [key]: trait })
     }
 
-    return { error, ape, traits, apeScore }
+    const clearApe = () => {
+      traits.value = []
+      store.commit(Mutations.CLEAR_APE_INFO)
+    }
+
+    return { error, ape, traits, apeScore, clearApe }
   },
 })

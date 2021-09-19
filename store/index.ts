@@ -1,4 +1,4 @@
-import { map } from 'lodash'
+import { map, startCase } from 'lodash'
 import { getApe } from '~/api/apes'
 import { collections } from '~/api/config'
 import { calculateApeRarity, calculateApeScorePoint } from '~/api/rarity'
@@ -17,12 +17,19 @@ export const getters: Getters = {
   collectionsNames: state => map(state.collections, 'name'),
 }
 
+// prettier-ignore
 export const mutations: MutationsInterface = {
   [Mutations.SET_APE](state, apeInfo) {
-    state.ape = apeInfo.ape
+    state.ape       = apeInfo.ape
     state.apeRarity = apeInfo.apeRarity
-    state.apeScore = apeInfo.apeScore
+    state.apeScore  = apeInfo.apeScore
   },
+
+  [Mutations.CLEAR_APE_INFO](state) {
+    state.ape       = null
+    state.apeRarity = null
+    state.apeScore  = null
+  }
 }
 
 export const actions: Actions = {

@@ -1,6 +1,6 @@
 <template>
   <div class="ape">
-    <div class="ape__close">
+    <div class="ape__close" @click="clearApe">
       <img src="~/assets/svg/close-icon-mobile.svg" alt="close" class="ape__close-icon ape__close-icon--mobile" />
     </div>
 

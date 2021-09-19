@@ -16,13 +16,15 @@ export interface Getters {
 
 // prettier-ignore
 export enum Mutations {
-  SET_APE      = 'SET_APE'     ,
+  SET_APE        = 'SET_APE'       ,
+  CLEAR_APE_INFO = 'CLEAR_APE_INFO',
 }
 
 export type RootType = ReturnType<() => State>
 
 export interface MutationsInterface extends MutationTree<RootType> {
   [Mutations.SET_APE](s: State, p: any): void
+  [Mutations.CLEAR_APE_INFO](s: State): void
 }
 
 export interface Actions {
