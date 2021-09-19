@@ -60,9 +60,17 @@
     @apply rounded;
 
     @apply md:mx-auto;
+    @apply lg:mx-0;
 
     &-content {
       @apply flex gap-x-4;
+    }
+
+    &-text {
+      @apply xl:(
+        relative right-[50%]
+        transform translate-x-[50%]
+      );
     }
 
     &-price {
