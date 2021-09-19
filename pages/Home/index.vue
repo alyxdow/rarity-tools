@@ -10,11 +10,11 @@
           <li
             class="main__tabs-item"
             :class="{
-              'main__tabs-item--active': actualCollection === collection.name,
+              'main__tabs-item--active': selectedCollection === collection,
             }"
             v-for="collection in collections"
             :key="collection.value"
-            @click="toggleCollection(collection.name)"
+            @click="toggleCollection(collection)"
           >
             {{ collection.name }}
           </li>
@@ -25,6 +25,10 @@
         <div class="main__gallery-image" v-for="ape in randomApes" :key="ape.tokenId">
           <ApePreview :ape="ape" />
         </div>
+      </div>
+
+      <div class="main__load">
+        <button class="main__load-btn" @click="getMoreRandomApes(6, 216)">Load more</button>
       </div>
     </div>
   </div>

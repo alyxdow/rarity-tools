@@ -31,6 +31,18 @@
       }
     }
   }
+
+  &__load {
+    @apply max-w-32 mx-auto mb-8;
+    @apply flex justify-center;
+
+    @apply md:max-w-64;
+
+    &-btn {
+      @apply bg-primary-light;
+      @apply py-2 px-4;
+    }
+  }
 }
 
 .ape-enter-from,

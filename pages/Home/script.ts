@@ -1,36 +1,38 @@
 import { defineComponent, ref, onMounted, useContext, computed } from '@nuxtjs/composition-api'
-import { filter } from 'lodash'
 import { getRandomApes } from '~/api/apes'
 import { collections } from '~/api/config'
+import { Collection } from '~/types'
 
 export default defineComponent({
   setup() {
     const randomApes = ref()
-    const actualCollection = ref()
     const selectedCollection = ref()
+    const { store } = useContext()
 
-    const toggleCollection = async (collectionName: string) => {
-      actualCollection.value = collectionName
-      selectedCollection.value = filter(collections, { name: actualCollection.value })[0]
+    const toggleCollection = async (collection: Collection) => {
+      selectedCollection.value = collection
 
       randomApes.value = await getRandomApes(selectedCollection.value, 3)
-      getMoreRandomApes(6) // The image loading was too slow, divide this request made it faster
+
+      setInterval(() => {
+        if (store.state.ape) return
+        getMoreRandomApes(3, 12) // The image loading was too slow, divide this request made it faster
+      }, 2000)
     }
 
-    const getMoreRandomApes = (numberOfApes: number) => {
-      setTimeout(async () => {
-        const newApes = await getRandomApes(selectedCollection.value, numberOfApes)
-        randomApes.value = [...randomApes.value, ...newApes]
-      }, 100)
+    const getMoreRandomApes = async (numberOfApes: number, limit: number) => {
+      if (randomApes.value.length >= limit) return
+
+      const newApes = await getRandomApes(selectedCollection.value, numberOfApes)
+      randomApes.value = [...randomApes.value, ...newApes]
     }
 
     onMounted(() => {
-      toggleCollection('Bored Ape Tron Club')
+      toggleCollection(collections[0])
     })
 
-    const { store } = useContext()
     const showApe = computed(() => store.state.ape)
 
-    return { randomApes, actualCollection, collections, toggleCollection, showApe }
+    return { randomApes, collections, selectedCollection, toggleCollection, showApe, getMoreRandomApes }
   },
 })
