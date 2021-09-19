@@ -18,6 +18,7 @@ export const getTraits = async (collection: Collection) => {
     Fur:        [],
     Hat:        [],
     Eyes:       [],
+    Type:       [],
     Mouth:      [],
     Clothes:    [],
     Earring:    [],
@@ -30,6 +31,7 @@ export const getTraits = async (collection: Collection) => {
     allTraits['Fur'       ].push(trait['Fur'       ])
     allTraits['Hat'       ].push(trait['Hat'       ])
     allTraits['Eyes'      ].push(trait['Eyes'      ])
+    allTraits['Type'      ].push(trait['Type'      ])
     allTraits['Mouth'     ].push(trait['Mouth'     ])
     allTraits['Clothes'   ].push(trait['Clothes'   ])
     allTraits['Earring'   ].push(trait['Earring'   ])
@@ -67,7 +69,7 @@ export const getTraitNumberOfRepetitions = async <TraitName extends keyof AllTra
   traitValue: string
 ) => {
   // TODO: evaluate type of ape
-  if (traitName == 'Type' || !traitValue) return
+  if (!traitValue) return
 
   const allTraits = await getTraits(collection)
   if (!allTraits) return
