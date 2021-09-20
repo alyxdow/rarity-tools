@@ -5,7 +5,8 @@ import { Mutations } from '~/store/types'
 
 export default defineComponent({
   setup() {
-    const { getters, dispatch, commit } = useStore()
+    const { getters, commit } = useStore()
+    const { redirect } = useContext()
 
     const apeId = ref()
     const collection = ref('Bored Ape Tron Club')
@@ -14,16 +15,9 @@ export default defineComponent({
 
     const evaluateApe = () => {
       commit(Mutations.CLEAR_APE_INFO)
-
-      dispatch('evaluateApe', {
-        apeId: apeId.value,
-        collection: selectedCollection.value,
-      })
-
-      apeId.value = null
+      redirect(`/apes/${selectedCollection.value.value}/${apeId.value}`)
     }
 
-    const { redirect } = useContext()
     const goHome = () => {
       commit(Mutations.CLEAR_APE_INFO)
       redirect('/')

@@ -4,8 +4,8 @@
       <img src="~/assets/svg/close-icon-mobile.svg" alt="close" class="ape__close-icon ape__close-icon--mobile" />
     </div>
 
-    <div class="ape__error" v-if="error">
-      <h1 class="ape__error-title">An error has occurred</h1>
+    <div class="ape__loading" v-if="!ape">
+      <h1 class="ape__loading-title">Loading #{{ $route.params.apeId }}...</h1>
     </div>
 
     <div class="ape__success" v-else>

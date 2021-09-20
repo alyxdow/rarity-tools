@@ -113,4 +113,21 @@
   &__traits {
     @apply <lg:pb-16;
   }
+
+  &__loading {
+    @apply h-full;
+    @apply flex justify-center items-center;
+    @apply text-2xl font-info;
+  }
+}
+
+.ape-enter-from,
+.ape-leave-to {
+  opacity: 0;
+  transform: translateY(20vh);
+}
+
+.ape-enter-active,
+.ape-leave-active {
+  transition: all 0.5s ease;
 }
