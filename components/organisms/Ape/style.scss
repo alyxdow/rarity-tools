@@ -62,6 +62,10 @@
     @apply md:mx-auto;
     @apply lg:mx-0;
 
+    &-image {
+      @apply w-10 rounded-full;
+    }
+
     &-content {
       @apply flex gap-x-4;
     }
