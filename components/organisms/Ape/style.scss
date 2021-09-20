@@ -105,4 +105,8 @@
     @apply flex;
     @apply mt-4;
   }
+
+  &__traits {
+    @apply <lg:pb-16;
+  }
 }
