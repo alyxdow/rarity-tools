@@ -10,13 +10,13 @@ export default {
 
     // HTML meta tags
     meta: [
-			{ charset: 'utf-8'                                                                },
-			{ httpEquiv: 'X-UA-Compatible',    content: 'IE=edge'                             },
-			{ name: 'viewport',                content: 'width=device-width, initial-scale=1' },
-			{ name: 'format-detection',        content: 'telephone=no'                        },
-			{ name: 'theme-color',             content: '#ffffff'                             },
-			{ name: 'msapplication-TileColor', content: '#ffffff'                             },
-			{ name: 'msapplication-TileImage', content: '/favicon/ms-icon-310x310.png'        },
+			{ charset: 'utf-8'                                                                                                       },
+			{ httpEquiv: 'X-UA-Compatible',    content: 'IE=edge'                                                                    },
+			{ name: 'viewport',                content: 'width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no' },
+			{ name: 'format-detection',        content: 'telephone=no'                                                               },
+			{ name: 'theme-color',             content: '#ffffff'                                                                    },
+			{ name: 'msapplication-TileColor', content: '#ffffff'                                                                    },
+			{ name: 'msapplication-TileImage', content: '/favicon/ms-icon-310x310.png'                                               },
 
 			/**
 			 * |--------------------------------------------------------------------------------------------------------------------|
