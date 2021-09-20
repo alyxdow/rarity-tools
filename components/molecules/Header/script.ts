@@ -15,9 +15,6 @@ export default defineComponent({
     const evaluateApe = () => {
       commit(Mutations.CLEAR_APE_INFO)
 
-      console.log(apeId.value)
-      console.log(selectedCollection.value)
-
       dispatch('evaluateApe', {
         apeId: apeId.value,
         collection: selectedCollection.value,
