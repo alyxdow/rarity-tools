@@ -1,5 +1,6 @@
-import { defineComponent, ref, useFetch } from '@nuxtjs/composition-api'
+import { defineComponent, ref, useFetch, useStore } from '@nuxtjs/composition-api'
 import { calculateApeScorePoint } from '~/api/rarity'
+import { Mutations } from '~/store/types'
 
 export default defineComponent({
   props: ['ape'],
@@ -12,6 +13,16 @@ export default defineComponent({
       apeScore.value = await calculateApeScorePoint(props.ape)
     })
 
-    return { apeScore }
+    const { commit, dispatch } = useStore()
+    const evaluateApe = () => {
+      commit(Mutations.CLEAR_APE_INFO)
+
+      dispatch('evaluateApe', {
+        apeId: props.ape.tokenId,
+        collection: props.ape.collection,
+      })
+    }
+
+    return { apeScore, evaluateApe }
   },
 })

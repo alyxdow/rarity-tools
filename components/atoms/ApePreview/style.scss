@@ -22,6 +22,7 @@
     @apply flex flex-col justify-end;
     @apply opacity-0 hover:opacity-100;
     @apply duration-300;
+    @apply cursor-pointer;
   }
 
   &__id {
