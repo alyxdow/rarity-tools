@@ -44,7 +44,7 @@
               <ul class="ape__share-menu" v-if="showShareMenu">
                 <i class="ape__share-triangle ri-arrow-up-s-fill"></i>
                 <li class="ape__share-item" @click="copyUrl">
-                  <a class="ape__share-link">Copy URL</a>
+                  <span class="ape__share-link" v-clipboard:copy="url + $route.fullPath">Copy URL</span>
                   <i class="ape__share-link-icon ri-check-line" v-if="linkCopied"></i>
                 </li>
               </ul>

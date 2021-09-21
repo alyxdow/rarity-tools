@@ -49,12 +49,9 @@ export default defineComponent({
 
     const showShareMenu = ref(false)
     const linkCopied = ref(false)
-    const copyUrl = () => {
-      navigator.clipboard.writeText(url + route.value.fullPath)
-      linkCopied.value = true
-    }
+    const copyUrl = () => (linkCopied.value = true)
 
-    return { ape, traits, apeScore, clearApe, collection, showShareMenu, copyUrl, linkCopied }
+    return { ape, traits, apeScore, clearApe, collection, showShareMenu, copyUrl, url, linkCopied }
   },
 
   transition: {
