@@ -32,7 +32,7 @@ export default defineComponent({
       if (ape.value) {
         for (const key in ape.value.traits) {
           const trait = ape.value.traits[key]
-          if (trait) traits.value.push({ [key]: trait })
+          traits.value.push({ [key]: trait })
         }
       }
     })

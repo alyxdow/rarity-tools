@@ -3,7 +3,7 @@
     <span class="trait__name">{{ traitName }}</span>
 
     <div class="trait__content">
-      <div class="trait__value">{{ traitValue }}</div>
+      <div class="trait__value">{{ traitValue ? traitValue : '&lt;none&gt;' }}</div>
       <div class="trait__count">{{ count }}</div>
     </div>
 

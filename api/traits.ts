@@ -49,7 +49,7 @@ export const getTraits = async (collection: Collection) => {
 
 export const sumTraits = (traitsArr: string[]) => {
   return traitsArr.reduce((acc: any, cur: any) => {
-    if (cur == undefined) return acc
+    // if (cur == undefined) return acc
 
     acc[cur] = (acc[cur] || 0) + 1
     return acc
@@ -69,8 +69,6 @@ export const getTraitNumberOfRepetitions = async <TraitName extends keyof AllTra
   traitValue: string
 ) => {
   // TODO: evaluate type of ape
-  if (!traitValue) return
-
   const allTraits = await getTraits(collection)
   if (!allTraits) return
 
