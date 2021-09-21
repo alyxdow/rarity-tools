@@ -23,7 +23,7 @@ export default defineComponent({
     }
     const collection = computed(() => {
       if (ape.value) {
-        collectionsValues[store.state.ape.collection.value]
+        return collectionsValues[store.state.ape.collection.value]
       }
     })
 
