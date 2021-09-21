@@ -38,6 +38,18 @@
       <div class="ape__right">
         <div class="ape__rarity">
           <InfoToast text="Rarity Score" :info="`${apeScore}`" />
+          <div class="ape__share">
+            <i class="ape__share-icon ri-share-fill" @click="showShareMenu = !showShareMenu"></i>
+            <transition name="menu">
+              <ul class="ape__share-menu" v-if="showShareMenu">
+                <i class="ape__share-triangle ri-arrow-up-s-fill"></i>
+                <li class="ape__share-item" @click="copyUrl">
+                  <a class="ape__share-link">Copy URL</a>
+                  <i class="ape__share-link-icon ri-check-line" v-if="linkCopied"></i>
+                </li>
+              </ul>
+            </transition>
+          </div>
         </div>
         <div class="ape__tabs"></div>
         <div class="ape__sort"></div>

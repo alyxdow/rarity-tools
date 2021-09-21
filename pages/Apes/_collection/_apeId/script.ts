@@ -1,6 +1,6 @@
 import { defineComponent, ref, Ref, useContext, computed, watch, onMounted, useStore, useRoute } from '@nuxtjs/composition-api'
 import { filter } from 'lodash'
-import { collections } from '~/api/config'
+import { collections, url } from '~/api/config'
 import { Mutations } from '~/store/types'
 
 export default defineComponent({
@@ -47,7 +47,14 @@ export default defineComponent({
       }, 3000)
     }
 
-    return { ape, traits, apeScore, clearApe, collection }
+    const showShareMenu = ref(false)
+    const linkCopied = ref(false)
+    const copyUrl = () => {
+      navigator.clipboard.writeText(url + route.value.fullPath)
+      linkCopied.value = true
+    }
+
+    return { ape, traits, apeScore, clearApe, collection, showShareMenu, copyUrl, linkCopied }
   },
 
   transition: {

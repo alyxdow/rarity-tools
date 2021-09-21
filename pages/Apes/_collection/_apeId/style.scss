@@ -106,8 +106,47 @@
   }
 
   &__rarity {
-    @apply flex;
+    @apply flex justify-between;
     @apply mt-4;
+  }
+
+  &__share {
+    @apply flex justify-center items-center;
+    @apply relative;
+
+    &-icon {
+      @apply text-2xl;
+      @apply px-2 py-1;
+      @apply bg-black text-white;
+      @apply rounded cursor-pointer;
+    }
+
+    &-triangle {
+      @apply absolute -top-5 right-3 text-4xl;
+      @apply text-gray-light;
+    }
+
+    &-menu {
+      @apply absolute top-13 -left-15 z-10;
+      @apply px-3 py-2 w-28;
+      @apply bg-gray-light;
+      @apply rounded shadow-md;
+    }
+
+    &-item {
+      @apply font-info text-xs;
+      @apply flex items-center justify-between;
+
+      @apply md:text-sm;
+
+      &-icon {
+        @apply duration-150;
+      }
+    }
+
+    &-link {
+      @apply cursor-pointer;
+    }
   }
 
   &__traits {
@@ -130,4 +169,14 @@
 .ape-enter-active,
 .ape-leave-active {
   transition: all 0.5s ease;
+}
+
+.menu-enter-from,
+.menu-leave-to {
+  opacity: 0;
+}
+
+.menu-enter-active,
+.menu-leave-active {
+  transition: all 0.3s ease;
 }
