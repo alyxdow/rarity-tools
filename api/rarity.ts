@@ -26,8 +26,7 @@ export const calculateRarity = async <TraitName extends keyof AllTraits>(
   const timesRepeated = allTraitsCount[traitValue]
   if (!timesRepeated) return
 
-  const rawRarity = +(numberOfApes / timesRepeated)
-  const rarity = rawRarity >= 100 ? 100 : rawRarity.toFixed(2)
+  const rarity = +(numberOfApes / timesRepeated).toFixed(2)
 
   return +rarity
 }
