@@ -1,4 +1,4 @@
-import { defineComponent, ref, useFetch, useStore } from '@nuxtjs/composition-api'
+import { defineComponent, ref, useContext, useFetch, useStore } from '@nuxtjs/composition-api'
 import { calculateApeScorePoint } from '~/api/rarity'
 import { Mutations } from '~/store/types'
 
@@ -13,14 +13,12 @@ export default defineComponent({
       apeScore.value = await calculateApeScorePoint(props.ape)
     })
 
-    const { commit, dispatch } = useStore()
+    const { commit } = useStore()
+    const { redirect } = useContext()
     const evaluateApe = () => {
       commit(Mutations.CLEAR_APE_INFO)
 
-      dispatch('evaluateApe', {
-        apeId: props.ape.tokenId,
-        collection: props.ape.collection,
-      })
+      redirect(`/apes/${props.ape.collection.value}/${props.ape.tokenId}`)
     }
 
     return { apeScore, evaluateApe }
