@@ -1,7 +1,8 @@
-import { sum, values } from 'lodash'
+import { filter, sum, values } from 'lodash'
 import { getTraits, sumTraits } from '~/api/traits'
-import { AllTraits, Ape, Collection } from '~/types'
+import { AllTraits, Ape, Collection, Rule } from '~/types'
 import { getNumberOfApes } from './apes'
+import { rules } from './config'
 
 /**
  * Method to verify a rarity of a trait on a collection
@@ -14,7 +15,8 @@ import { getNumberOfApes } from './apes'
 export const calculateRarity = async <TraitName extends keyof AllTraits>(
   collectionName: Collection,
   traitName: TraitName,
-  traitValue: string
+  traitValue: string,
+  rule?: Rule
 ) => {
   const traits = await getTraits(collectionName)
   const numberOfApes = await getNumberOfApes(collectionName)
@@ -26,7 +28,13 @@ export const calculateRarity = async <TraitName extends keyof AllTraits>(
   const timesRepeated = allTraitsCount[traitValue]
   if (!timesRepeated) return
 
-  const rarity = +(numberOfApes / timesRepeated).toFixed(2)
+  let rawRarity = +(numberOfApes / timesRepeated)
+  let rarity = +rawRarity.toFixed(2)
+
+  if (rule) {
+    if (traitName !== 'Type') rarity = 1
+    else rarity = rarity * rule.rule
+  }
 
   return +rarity
 }
@@ -41,10 +49,11 @@ export const calculateApeRarity = async (ape: Ape) => {
   const apeTraits: any = ape.traits
   const apeCollection = ape.collection
   const apeTraitsRarities: any = {}
+  const apeRule: Rule = filter(rules, { Type: ape.traits.Type })[0]
 
   for (const key in apeTraits) {
     const trait = apeTraits[key]
-    const traitRarity = await calculateRarity(apeCollection, key, trait)
+    const traitRarity = await calculateRarity(apeCollection, key, trait, apeRule)
 
     if (traitRarity) {
       apeTraitsRarities[key] = traitRarity

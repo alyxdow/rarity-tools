@@ -7,7 +7,7 @@
       <div class="trait__count">{{ count }}</div>
     </div>
 
-    <div class="trait__score">+{{ rarity }}</div>
+    <div class="trait__score" v-if="rarity">+{{ rarity }}</div>
   </div>
 </template>
 

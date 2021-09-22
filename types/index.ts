@@ -12,6 +12,7 @@ export interface AllTraits {
 
 // prettier-ignore
 export interface Trait {
+  Type      ?: string
   Fur       ?: string | number
   Hat       ?: string | number
   Eyes      ?: string | number
@@ -43,4 +44,9 @@ export interface Collection {
 export interface ApeInfo {
   collection: Collection
   apeId: string | number
+}
+
+export interface Rule {
+  Type: string
+  rule: number
 }

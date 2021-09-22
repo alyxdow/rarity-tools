@@ -1,4 +1,4 @@
-import { map, startCase } from 'lodash'
+import { map } from 'lodash'
 import { getApe } from '~/api/apes'
 import { collections } from '~/api/config'
 import { calculateApeRarity, calculateApeScorePoint } from '~/api/rarity'
@@ -36,7 +36,6 @@ export const actions: Actions = {
   async evaluateApe({ commit }: any, apeInfo) {
     const ape = await getApe(apeInfo.collection, apeInfo.apeId)
     if (!ape) return alert(`Ape ${apeInfo.apeId} not found`)
-    if (ape.traits['Eyes'] == 'Calm' || ape.traits['Eyes'] == 'Watchful') ape.traits['Eyes'] = 'Open'
 
     const apeRarity = await calculateApeRarity(ape)
     const apeScore = await calculateApeScorePoint(ape)
