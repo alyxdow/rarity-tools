@@ -49,8 +49,6 @@ export const getTraits = async (collection: Collection) => {
 
 export const sumTraits = (traitsArr: string[]) => {
   return traitsArr.reduce((acc: any, cur: any) => {
-    // if (cur == undefined) return acc
-
     acc[cur] = (acc[cur] || 0) + 1
     return acc
   }, {})
