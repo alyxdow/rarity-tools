@@ -1,7 +1,8 @@
 .main {
   &__tabs {
-    @apply bg-gray-light mb-[40px];
+    @apply bg-gray-light bg-opacity-60 mb-[40px];
     @apply sticky top-0 z-10;
+    @apply backdrop-filter backdrop-blur-xl;
 
     &-list {
       @apply flex justify-center gap-x-9;
