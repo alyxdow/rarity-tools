@@ -1,5 +1,6 @@
 import { defineComponent, ref, onMounted, useContext, computed } from '@nuxtjs/composition-api'
-import { getRandomApes } from '~/api/apes'
+import { sortBy } from 'lodash'
+import { getApes, getRandomApes } from '~/api/apes'
 import { collections } from '~/api/config'
 import { Collection } from '~/types'
 
@@ -12,7 +13,8 @@ export default defineComponent({
     const toggleCollection = async (collection: Collection) => {
       selectedCollection.value = collection
 
-      randomApes.value = await getRandomApes(selectedCollection.value, 3)
+      // randomApes.value = await getRandomApes(selectedCollection.value, 3)
+      randomApes.value = sortBy(await getApes(selectedCollection.value), 'tokenId')?.slice(0, 20)
 
       setInterval(() => {
         if (store.state.ape) return
@@ -35,4 +37,6 @@ export default defineComponent({
 
     return { randomApes, collections, selectedCollection, toggleCollection, showApe, getMoreRandomApes }
   },
+
+  render: h => h(),
 })
