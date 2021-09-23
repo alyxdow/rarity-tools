@@ -10,7 +10,7 @@
 
   @apply lg:(
     grid grid-cols-3 gap-x-0
-    py-4 px-10
+    py-4 px-2
   );
 
   &__logo {
@@ -23,15 +23,44 @@
     );
 
     &-img {
-      &--mobile {
-        @apply w-16 h-5;
-        @apply md:hidden;
-      }
+      @apply w-16;
+      @apply object-center object-cover;
+    }
 
-      &--desktop {
-        @apply w-[150px];
-        @apply hidden md:flex;
+    &--mobile {
+      @apply md:hidden;
+
+      & .header__logo-icon {
+        @apply h-8;
+        @apply top-1;
+
+        &.show {
+          @apply flex;
+        }
+
+        &.disabled {
+          @apply !hidden;
+        }
       }
+    }
+
+    &--desktop {
+      @apply hidden;
+      @apply md:flex;
+    }
+
+    &-icon {
+      @apply w-12 h-12;
+      @apply fixed z-999;
+      @apply duration-100;
+
+      &.scrolled {
+        @apply top-1 h-10;
+      }
+    }
+
+    &-text {
+      @apply h-12 ml-12;
     }
   }
 
@@ -145,4 +174,14 @@
   &__actions {
     @apply md:pt-0;
   }
+}
+
+.icon-enter-from,
+.icon-leave-to {
+  opacity: 0;
+}
+
+.icon-enter-active,
+.icon-leave-active {
+  transition: all 0.1s ease-in;
 }

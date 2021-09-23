@@ -1,8 +1,23 @@
 <template>
   <header class="header">
     <div class="header__logo" @click="goHome">
-      <img src="~/assets/svg/logo-desktop.svg" class="header__logo-img header__logo-img--desktop" alt="Logo" />
-      <img src="~/assets/svg/logo-mobile.svg" class="header__logo-img header__logo-img--mobile" alt="Logo" />
+      <div class="header__logo--mobile">
+        <transition name="icon">
+          <img
+            src="~/assets/svg/logo-icon.svg"
+            alt="Logo"
+            v-if="mobileScroll"
+            class="header__logo-icon"
+            :class="{ disabled: $route.fullPath != '/home' }"
+          />
+        </transition>
+        <img src="~/assets/svg/logo.svg" class="header__logo-img" alt="Logo" />
+      </div>
+
+      <div class="header__logo--desktop">
+        <img src="~/assets/svg/logo-icon.svg" class="header__logo-icon" alt="Logo" :class="{ scrolled: desktopScroll }" />
+        <img src="~/assets/svg/logo-text.svg" class="header__logo-text" alt="Logo" />
+      </div>
     </div>
 
     <form class="header__form" @submit.prevent="evaluateApe">

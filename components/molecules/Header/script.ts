@@ -2,6 +2,7 @@ import { defineComponent, ref, useContext, useStore, computed } from '@nuxtjs/co
 import { filter } from 'lodash'
 import { collections as allCollections } from '~/api/config'
 import { Mutations } from '~/store/types'
+import { useScroll } from '~/vue/useScroll'
 
 export default defineComponent({
   setup() {
@@ -23,6 +24,9 @@ export default defineComponent({
       redirect('/')
     }
 
-    return { collections, collection, evaluateApe, apeId, goHome }
+    const { hasScrolled: desktopScroll } = useScroll(56)
+    const { hasScrolled: mobileScroll } = useScroll(400)
+
+    return { collections, collection, evaluateApe, apeId, goHome, desktopScroll, mobileScroll }
   },
 })
