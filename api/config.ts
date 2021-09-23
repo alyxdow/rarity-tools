@@ -33,8 +33,8 @@ export const collections = [
 
 // prettier-ignore
 export const rules = [
-  { Type: 'Justin Sun'  , rule: 8 },
-  { Type: 'Tron Bull'   , rule: 8 },
-  { Type: 'Tron Friend' , rule: 8 },
-  { Type: 'Tron Legend' , rule: 8 },
+  { Type: 'Justin Sun'  , rule: 8  },
+  { Type: 'Tron Bull'   , rule: 8  },
+  { Type: 'Tron Friend' , rule: 8  },
+  { Type: 'Tron Legend' , rule: 10 },
 ]
