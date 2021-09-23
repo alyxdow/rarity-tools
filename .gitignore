@@ -91,3 +91,6 @@ sw.*
 
 # Todo lists
 TODO.*
+
+# Whitelist
+no-git
