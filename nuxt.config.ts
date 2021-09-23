@@ -23,7 +23,7 @@ export default {
 			{ name: 'format-detection',        content: 'telephone=no'                                                               },
 			{ name: 'theme-color',             content: '#ffffff'                                                                    },
 			{ name: 'msapplication-TileColor', content: '#ffffff'                                                                    },
-			{ name: 'msapplication-TileImage', content: '/favicon/ms-icon-310x310.png'                                               },
+			{ name: 'msapplication-TileImage', content: '/icon.png'                                                                  },
 
 			/**
 			 * |--------------------------------------------------------------------------------------------------------------------|
@@ -52,7 +52,7 @@ export default {
     // HTML link tags
     link: [
       // Favicon
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon/favicon.ico' },
+      { rel: 'icon', type: 'image/png',    href: '/apexgo-nft-rarity-tool.png'   },
 
       // Favicon - Apple -----------------------------------------------------------------------------------------------------|
       { rel: 'apple-touch-icon', sizes: '57x57',   href: '/favicon/apple-icon-57x57.png'   },
