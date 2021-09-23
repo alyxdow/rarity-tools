@@ -18,6 +18,7 @@ const ape: Ape = {
   },
 }
 
+/*
 describe('Trait rarity', () => {
   test('Bored blue background', async () => {
     const rarity = await calculateRarity({ value: 'bored' }, 'Background', 'Blue')
@@ -39,6 +40,7 @@ describe('Trait rarity', () => {
     expect(rarity).toBe(19.62)
   })
 })
+*/
 
 describe('Ape rarity', () => {
   test('Simple bored ape', async () => {
