@@ -31,7 +31,7 @@
       @apply md:hidden;
 
       & .header__logo-icon {
-        @apply h-8;
+        @apply h-8 left-1;
         @apply top-1;
 
         &.show {
