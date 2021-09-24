@@ -36,7 +36,7 @@ export const calculateRarity = async <TraitName extends keyof AllTraits>(
     else rarity = rarity * rule.rule
   }
 
-  return +rarity
+  return +rarity.toFixed(2)
 }
 
 /**
