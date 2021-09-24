@@ -19,10 +19,14 @@ export default defineComponent({
       // randomApes.value = await getRandomApes(selectedCollection.value, 3)
     }
 
-    const getMoreRandomApes = async (numberOfApes: number, limit: number) => {
+    const getMoreApes = async (numberOfApes: number, limit: number) => {
       if (randomApes.value.length >= limit) return
 
-      const newApes = await getRandomApes(selectedCollection.value, numberOfApes)
+      // const newApes = await getRandomApes(selectedCollection.value, numberOfApes)
+      const newApes = await sortBy(await getApes(selectedCollection.value), 'tokenId')?.slice(
+        randomApes.value.length,
+        randomApes.value.length + 20
+      )
       randomApes.value = [...randomApes.value, ...newApes]
     }
 
@@ -32,7 +36,7 @@ export default defineComponent({
 
     const showApe = computed(() => store.state.ape)
 
-    return { randomApes, collections, selectedCollection, toggleCollection, showApe, getMoreRandomApes }
+    return { randomApes, collections, selectedCollection, toggleCollection, showApe, getMoreApes }
   },
 
   render: h => h(),

@@ -23,7 +23,7 @@
     </div>
 
     <div class="main__load">
-      <button class="main__load-btn" @click="getMoreRandomApes(6, 216)">Load more</button>
+      <button class="main__load-btn" @click="getMoreApes(6, 216)">Load more</button>
     </div>
   </div>
 </template>
