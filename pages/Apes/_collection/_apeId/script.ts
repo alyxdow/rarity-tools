@@ -1,5 +1,5 @@
 import { defineComponent, ref, Ref, useContext, computed, watch, onMounted, useStore, useRoute } from '@nuxtjs/composition-api'
-import { filter } from 'lodash'
+import { filter, pickBy } from 'lodash'
 import { collections, url } from '~/api/config'
 import { Mutations } from '~/store/types'
 
@@ -35,6 +35,8 @@ export default defineComponent({
           traits.value.push({ [key]: trait })
         }
       }
+
+      console.log(traits.value)
     })
 
     const { redirect } = useContext()
@@ -51,7 +53,18 @@ export default defineComponent({
     const linkCopied = ref(false)
     const copyUrl = () => (linkCopied.value = true)
 
-    return { ape, traits, apeScore, clearApe, collection, showShareMenu, copyUrl, url, linkCopied }
+    const showNones = ref(true)
+    const traitsToShow = computed(() => {
+      if (showNones.value) return traits.value
+
+      return pickBy(traits.value, trait => {
+        for (let key in trait) {
+          if (trait[key]) return trait[key]
+        }
+      })
+    })
+
+    return { ape, traits, apeScore, clearApe, collection, showShareMenu, copyUrl, url, linkCopied, showNones, traitsToShow }
   },
 
   transition: {

@@ -51,14 +51,25 @@
             </transition>
           </div>
         </div>
+
         <div class="ape__tabs"></div>
         <div class="ape__sort"></div>
+
         <div class="ape__traits">
           <ul>
-            <li v-for="trait in traits" :key="trait[0]">
+            <li v-for="(trait, i) in traitsToShow" :key="i">
               <TraitRenderer :trait="trait" />
             </li>
           </ul>
+        </div>
+
+        <div class="ape__nones" @click="showNones = !showNones">
+          <input type="checkbox" class="ape__nones-input" v-model="showNones" />
+          <div class="ape__nones-icon">
+            <div class="ape__nones-check" v-if="showNones"></div>
+          </div>
+
+          <span class="ape__nones-text">Show Nones</span>
         </div>
       </div>
     </div>

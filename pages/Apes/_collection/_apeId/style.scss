@@ -101,6 +101,8 @@
   }
 
   &__right {
+    @apply pb-12;
+
     @apply lg:w-[320px];
     @apply xl:w-[500px];
   }
@@ -150,13 +152,49 @@
   }
 
   &__traits {
-    @apply <lg:pb-16;
+    @apply pb-12;
   }
 
   &__loading {
     @apply h-full;
     @apply flex justify-center items-center;
     @apply text-2xl font-info;
+  }
+
+  &__nones {
+    @apply bg-black text-white;
+    @apply p-2 mx-auto max-w-32;
+    @apply flex justify-center items-center;
+    @apply relative cursor-pointer rounded;
+
+    &-input {
+      @apply absolute top-0 left-0;
+      @apply h-0 w-0;
+    }
+
+    &-icon {
+      @apply h-3 w-3;
+      @apply bg-primary;
+      @apply relative rounded-sm;
+      @apply flex justify-center items-center;
+
+      &:hover {
+        @apply bg-green-400;
+      }
+    }
+
+    &-check {
+      @apply h-1 w-1;
+      @apply bg-black text-xl;
+      @apply font-bold;
+      @apply rounded;
+    }
+
+    &-text {
+      @apply font-semibold text-sm;
+      @apply ml-2 mt-1;
+      @apply cursor-pointer;
+    }
   }
 }
 
