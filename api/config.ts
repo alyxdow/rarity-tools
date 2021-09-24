@@ -5,7 +5,7 @@
  */
 
 export const dev = process.env.NODE_ENV !== 'production'
-export const url = dev ? 'http://localhost:3000' : 'http://apexgo.io/'
+export const url = dev ? 'http://localhost:3000' : 'https://apexgo.io/'
 
 /**
  * |--------------------------------------------------------------------------------------------------------------------------|
