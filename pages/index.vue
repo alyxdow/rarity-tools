@@ -28,5 +28,5 @@
   </div>
 </template>
 
-<script lang="ts" src="./script.ts"></script>
-<style lang="scss" src="./style.scss"></style>
+<script lang="ts" src="./Home/script.ts"></script>
+<style lang="scss" src="./Home/style.scss"></style>
