@@ -13,15 +13,10 @@ export default defineComponent({
     const toggleCollection = async (collection: Collection) => {
       selectedCollection.value = collection
 
-      randomApes.value = await getRandomApes(selectedCollection.value, 3)
+      randomApes.value = sortBy(await getApes(selectedCollection.value), 'tokenId')?.slice(0, 20)
 
-      // Show them in sorted by ID
-      // randomApes.value = sortBy(await getApes(selectedCollection.value), 'tokenId')?.slice(0, 20)
-
-      setInterval(() => {
-        if (store.state.ape) return
-        getMoreRandomApes(3, 12) // The image loading was too slow, divide this request made it faster
-      }, 2000)
+      // Show them in random position
+      // randomApes.value = await getRandomApes(selectedCollection.value, 3)
     }
 
     const getMoreRandomApes = async (numberOfApes: number, limit: number) => {
