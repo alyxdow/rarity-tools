@@ -6,28 +6,28 @@ import { Collection } from '~/types'
 
 export default defineComponent({
   setup() {
-    const randomApes = ref()
+    const apes = ref()
     const selectedCollection = ref()
     const { store } = useContext()
 
     const toggleCollection = async (collection: Collection) => {
       selectedCollection.value = collection
 
-      randomApes.value = sortBy(await getApes(selectedCollection.value), 'tokenId')?.slice(0, 20)
+      apes.value = sortBy(await getApes(selectedCollection.value), 'tokenId')?.slice(0, 3)
 
       // Show them in random position
-      // randomApes.value = await getRandomApes(selectedCollection.value, 3)
+      // apes.value = await getRandomApes(selectedCollection.value, 3)
     }
 
     const getMoreApes = async (numberOfApes: number, limit: number) => {
-      if (randomApes.value.length >= limit) return
+      if (apes.value.length >= limit) return
 
       // const newApes = await getRandomApes(selectedCollection.value, numberOfApes)
       const newApes = await sortBy(await getApes(selectedCollection.value), 'tokenId')?.slice(
-        randomApes.value.length,
-        randomApes.value.length + 20
+        apes.value.length,
+        apes.value.length + 9
       )
-      randomApes.value = [...randomApes.value, ...newApes]
+      apes.value = [...apes.value, ...newApes]
     }
 
     onMounted(() => {
@@ -36,7 +36,7 @@ export default defineComponent({
 
     const showApe = computed(() => store.state.ape)
 
-    return { randomApes, collections, selectedCollection, toggleCollection, showApe, getMoreApes }
+    return { apes, collections, selectedCollection, toggleCollection, showApe, getMoreApes }
   },
 
   render: h => h(),
