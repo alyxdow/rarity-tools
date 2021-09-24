@@ -37,4 +37,9 @@ export const rules = [
   { Type: 'Tron Bull'   , rule: 8  },
   { Type: 'Tron Friend' , rule: 8  },
   { Type: 'Tron Legend' , rule: 10 },
+
+  { Type: 'Justin Sun Mutant'  , rule: 8  },
+  { Type: 'Tron Bull Mutant'   , rule: 8  },
+  { Type: 'Tron Friend Mutant' , rule: 8  },
+  { Type: 'Mega'               , rule: 10 },
 ]
