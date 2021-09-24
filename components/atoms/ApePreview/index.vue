@@ -10,7 +10,7 @@
       <div class="preview__content">
         <div class="preview__name">{{ ape.collection.name }} #{{ ape.tokenId }}</div>
 
-        <div class="preview__score">
+        <div class="preview__score" v-if="apeScore">
           Score:
           <span class="preview__score-score">{{ apeScore }}</span>
         </div>
