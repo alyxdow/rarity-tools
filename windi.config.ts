@@ -25,9 +25,9 @@ export default defineConfig({
       },
 
       fontFamily: {
-        body:   [`"Suisse Int'l"`,      'sans-serif'],
-        info:   ["'Euclid Circular A'", 'sans-serif'],
-        number: ['Roboto',              'sans-serif'],
+        body:   [`"Suisse Int'l Regular"`,      'sans-serif'],
+        info:   ["'Euclid Circular A Regular'", 'sans-serif'],
+        number: ['Roboto',                      'sans-serif'],
       },
 
       fontSize: {

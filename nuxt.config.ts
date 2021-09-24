@@ -68,16 +68,6 @@ export default {
       // Favicon - Manifest --------------------------------------------------------------------------------------------------|
       { rel: 'manifest', href: '/manifest.json' },
 
-      /**
-       * Fonts ---------------------------------------------------------------------------------------------------------------|
-       ** Euclid Circular A
-       ** Suisse Int'l
-       ** Roboto
-       */
-      { rel: 'stylesheet', href: '//db.onlinewebfonts.com/c/a575313c6dc4fd00c1a9506e1c3ea4fc?family=Euclid+Circular+A'   },
-      { rel: 'stylesheet', href: "//db.onlinewebfonts.com/c/501e03d4c0303f394033bcaf435f4b3e?family=Suisse+Int'l+Medium" },
-      { rel: 'stylesheet', href: "//db.onlinewebfonts.com/c/0033a2fbc0329740fb86c1cfd134cb94?family=Roboto"              },
-
       // Remix Icons ---------------------------------------------------------------------------------------------------------|
       { rel: 'stylesheet', href: 'https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css' },
     ]
