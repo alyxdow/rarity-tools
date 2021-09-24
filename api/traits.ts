@@ -18,6 +18,7 @@ export const getTraits = async (collection: Collection) => {
     Fur:        [],
     Hat:        [],
     Eyes:       [],
+    Name:       [],
     Type:       [],
     Mouth:      [],
     Clothes:    [],
@@ -31,6 +32,7 @@ export const getTraits = async (collection: Collection) => {
     allTraits['Fur'       ].push(trait['Fur'       ])
     allTraits['Hat'       ].push(trait['Hat'       ])
     allTraits['Eyes'      ].push(trait['Eyes'      ])
+    allTraits['Name'      ].push(trait['Name'      ])
     allTraits['Type'      ].push(trait['Type'      ])
     allTraits['Mouth'     ].push(trait['Mouth'     ])
     allTraits['Clothes'   ].push(trait['Clothes'   ])

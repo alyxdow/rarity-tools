@@ -3,6 +3,7 @@ export interface AllTraits {
   Fur            : string[]
   Hat            : string[]
   Eyes           : string[]
+  Name           : string[]
   Mouth          : string[]
   Clothes        : string[]
   Earring        : string[]
@@ -16,6 +17,7 @@ export interface Trait {
   Fur       ?: string | number
   Hat       ?: string | number
   Eyes      ?: string | number
+  Name      ?: string | number
   Mouth     ?: string | number
   Clothes   ?: string | number
   Earring   ?: string | number
