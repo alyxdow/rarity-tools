@@ -42,6 +42,11 @@
           @apply !hidden;
         }
       }
+
+      & .header__logo-img {
+        @apply w-20;
+        @apply object-center object-cover;
+      }
     }
 
     &--desktop {
