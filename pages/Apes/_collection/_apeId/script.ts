@@ -4,10 +4,18 @@ import { collections, url } from '~/api/config'
 import { Mutations } from '~/store/types'
 
 export default defineComponent({
+  transition: {
+    name: 'ape',
+    mode: 'out-in',
+  },
+
   setup() {
+    // Nuxt variables / methods ----------------------------------------------------------------------------------------------|
     const store: any = useStore()
     const route = useRoute()
+    const { redirect } = useContext()
 
+    // On instance mounted ---------------------------------------------------------------------------------------------------|
     onMounted(() => {
       const apeId = route.value.params.apeId
       const collection = filter(collections, { value: route.value.params.collection })[0]
@@ -15,6 +23,7 @@ export default defineComponent({
       store.dispatch('evaluateApe', { apeId, collection })
     })
 
+    // Ape info from Vuex ----------------------------------------------------------------------------------------------------|
     const ape = computed(() => store.state.ape)
     const apeScore = computed(() => store.state.apeScore)
     const collectionsValues: any = {
@@ -27,6 +36,7 @@ export default defineComponent({
       }
     })
 
+    // Ape traits ------------------------------------------------------------------------------------------------------------|
     const traits: Ref<any[]> = ref([])
     watch(ape, () => {
       if (ape.value) {
@@ -35,11 +45,9 @@ export default defineComponent({
           traits.value.push({ [key]: trait })
         }
       }
-
-      console.log(traits.value)
     })
 
-    const { redirect } = useContext()
+    // When the user close the page ------------------------------------------------------------------------------------------|
     const clearApe = () => {
       redirect('/')
 
@@ -49,10 +57,12 @@ export default defineComponent({
       }, 3000)
     }
 
+    // Share menu ------------------------------------------------------------------------------------------------------------|
     const showShareMenu = ref(false)
     const linkCopied = ref(false)
     const copyUrl = () => (linkCopied.value = true)
 
+    // Nones filter ----------------------------------------------------------------------------------------------------------|
     const showNones = ref(true)
     const traitsToShow = computed(() => {
       if (showNones.value) return traits.value
@@ -64,11 +74,19 @@ export default defineComponent({
       })
     })
 
-    return { ape, traits, apeScore, clearApe, collection, showShareMenu, copyUrl, url, linkCopied, showNones, traitsToShow }
-  },
-
-  transition: {
-    name: 'ape',
-    mode: 'out-in',
+    // Return values ---------------------------------------------------------------------------------------------------------|
+    return {
+      ape,
+      traits,
+      apeScore,
+      clearApe,
+      collection,
+      showShareMenu,
+      copyUrl,
+      url,
+      linkCopied,
+      showNones,
+      traitsToShow,
+    }
   },
 })
