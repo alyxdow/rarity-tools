@@ -33,6 +33,11 @@
     }
   }
 
+  &__loading {
+    @apply text-center text-xl font-info;
+    @apply my-12;
+  }
+
   &__load {
     @apply max-w-32 mx-auto mb-8;
     @apply flex justify-center;

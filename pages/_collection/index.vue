@@ -5,21 +5,26 @@
         <li
           class="main__tabs-item"
           :class="{
-            'main__tabs-item--active': selectedCollection === collection,
+            'main__tabs-item--active': collectionValue === collection.value,
           }"
           v-for="collection in collections"
           :key="collection.value"
-          @click="toggleCollection(collection)"
         >
-          {{ collection.name }}
+          <nuxt-link :to="`/${collection.value}`">
+            {{ collection.name }}
+          </nuxt-link>
         </li>
       </ul>
     </div>
 
-    <div class="main__gallery">
+    <div class="main__gallery" v-if="apes">
       <div class="main__gallery-image" v-for="ape in apes" :key="ape.tokenId">
         <ApePreview :ape="ape" />
       </div>
+    </div>
+
+    <div class="main__loading" v-else>
+      <p class="main__loading-text">Loading...</p>
     </div>
 
     <div class="main__load">
@@ -28,5 +33,5 @@
   </div>
 </template>
 
-<script lang="ts" src="./Home/script.ts"></script>
-<style lang="scss" src="./Home/style.scss"></style>
+<script lang="ts" src="./script.ts"></script>
+<style lang="scss" src="./style.scss"></style>
