@@ -27,7 +27,7 @@
       <p class="main__loading-text">Loading...</p>
     </div>
 
-    <div class="main__load">
+    <div class="main__load" v-if="apes">
       <button class="main__load-btn" @click="getMoreApes(6, 216)">Load more</button>
     </div>
   </div>
