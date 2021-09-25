@@ -9,6 +9,7 @@
           }"
           v-for="collection in collections"
           :key="collection.value"
+          @click="toggleCollection(collection)"
         >
           <nuxt-link :to="`/${collection.value}`">
             {{ collection.name }}

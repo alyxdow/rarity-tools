@@ -2,6 +2,7 @@ import { defineComponent, ref, onMounted, useContext, computed } from '@nuxtjs/c
 import { filter, sortBy } from 'lodash'
 import { getApes } from '~/api/apes'
 import { collections } from '~/api/config'
+import { Collection } from '~/types'
 
 export default defineComponent({
   setup() {
@@ -31,6 +32,12 @@ export default defineComponent({
       apes.value = [...apes.value, ...newApes]
     }
 
+    const toggleCollection = (collection: Collection) => {
+      if (process.client) {
+        localStorage.setItem('collection', collection.value)
+      }
+    }
+
     // On instance mounted ---------------------------------------------------------------------------------------------------|
     onMounted(() => {
       getFirstApes()
@@ -43,6 +50,7 @@ export default defineComponent({
       collections,
       getFirstApes,
       getMoreApes,
+      toggleCollection,
     }
   },
 })

@@ -17,7 +17,7 @@ export default defineComponent({
 
     // On instance mounted ---------------------------------------------------------------------------------------------------|
     onMounted(() => {
-      const apeId = route.value.params.apeId
+      const apeId = route.value.params.id
       const collection = filter(collections, { value: route.value.params.collection })[0]
 
       store.dispatch('evaluateApe', { apeId, collection })

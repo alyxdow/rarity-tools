@@ -1,5 +1,16 @@
-import { defineComponent } from '@nuxtjs/composition-api'
+import { defineComponent, onMounted, useContext } from '@nuxtjs/composition-api'
 
 export default defineComponent({
-  middleware: ({ redirect }) => redirect('/bored'),
+  setup() {
+    const { redirect } = useContext()
+
+    onMounted(() => {
+      if (!process.client) return
+      const collection = localStorage.getItem('collection') || 'bored'
+
+      redirect(`/${collection}`)
+    })
+  },
+
+  render: h => h(),
 })

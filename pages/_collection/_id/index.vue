@@ -5,7 +5,7 @@
     </div>
 
     <div class="ape__loading" v-if="!ape">
-      <h1 class="ape__loading-title">Loading #{{ $route.params.apeId }}...</h1>
+      <h1 class="ape__loading-title">Loading #{{ $route.params.id }}...</h1>
     </div>
 
     <div class="ape__success" v-else>

@@ -16,7 +16,7 @@ export default defineComponent({
 
     const evaluateApe = () => {
       commit(Mutations.CLEAR_APE_INFO)
-      redirect(`/apes/${selectedCollection.value.value}/${apeId.value}`)
+      redirect(`/${selectedCollection.value.value}/${apeId.value}`)
     }
 
     const goHome = () => {
