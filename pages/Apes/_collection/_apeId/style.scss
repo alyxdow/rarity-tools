@@ -66,13 +66,11 @@
     }
 
     &-content {
-      @apply flex gap-x-4;
+      @apply flex gap-x-4 w-full;
     }
 
     &-text {
-      @apply xl:(
-        relative right-[50%]
-      );
+      @apply mx-auto relative -left-4;
     }
 
     &-price {
