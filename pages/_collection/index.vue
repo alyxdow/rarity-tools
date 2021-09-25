@@ -5,7 +5,7 @@
         <li
           class="main__tabs-item"
           :class="{
-            'main__tabs-item--active': collectionValue === collection.value,
+            'main__tabs-item--active': collectionValue.value === collection.value,
           }"
           v-for="collection in collections"
           :key="collection.value"

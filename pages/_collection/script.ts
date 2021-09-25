@@ -1,5 +1,5 @@
 import { defineComponent, ref, onMounted, useContext, computed } from '@nuxtjs/composition-api'
-import { sortBy } from 'lodash'
+import { filter, sortBy } from 'lodash'
 import { getApes } from '~/api/apes'
 import { collections } from '~/api/config'
 
@@ -10,21 +10,21 @@ export default defineComponent({
 
     // Apes ------------------------------------------------------------------------------------------------------------------|
     const apes = ref()
-    const collectionValue = computed(() => route.value.params.collection)
+    const collectionValue = computed(() => filter(collections, { value: route.value.params.collection })[0])
     const getFirstApes = async () => {
       // Show them sorted by ID
-      apes.value = sortBy(await getApes({ value: collectionValue.value }), 'tokenId')?.slice(0, 3)
+      apes.value = sortBy(await getApes(collectionValue.value), 'tokenId')?.slice(0, 3)
 
       // Show them in random position
-      // apes.value = await getRandomApes({ value: collectionValue.value }, 3)
+      // apes.value = await getRandomApes(collectionValue.value, 3)
     }
 
     // Get more apes ---------------------------------------------------------------------------------------------------------|
     const getMoreApes = async (numberOfApes: number, limit: number) => {
       if (apes.value.length >= limit) return
 
-      // const newApes = await getRandomApes({ value: collectionValue.value }, numberOfApes)
-      const newApes = await sortBy(await getApes({ value: collectionValue.value }), 'tokenId')?.slice(
+      // const newApes = await getRandomApes(collectionValue.value, numberOfApes)
+      const newApes = await sortBy(await getApes(collectionValue.value), 'tokenId')?.slice(
         apes.value.length,
         apes.value.length + numberOfApes
       )
