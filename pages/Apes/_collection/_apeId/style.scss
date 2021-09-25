@@ -43,7 +43,7 @@
 
   &__name {
     @apply flex justify-between;
-    @apply mx-4 mt-3 max-w-[631px];
+    @apply mt-3 max-w-[631px];
     @apply text-desktop font-semibold;
 
     @apply md:(mx-auto w-[646px]);
@@ -55,12 +55,11 @@
     @apply bg-black text-white;
     @apply flex justify-between items-center gap-x-6;
     @apply relative;
-    @apply mx-4 mt-3 p-3 max-w-[631px];
+    @apply mt-3 p-3 max-w-[631px];
     @apply font-semibold;
     @apply rounded;
 
-    @apply md:mx-auto;
-    @apply lg:mx-0;
+    @apply md:(mx-auto w-full);
 
     &-image {
       @apply w-10 rounded-full;
