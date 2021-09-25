@@ -13,7 +13,7 @@ export const getApes = async (collection: Collection) => {
   const allCollections = values(map(collections, 'value'))
   if (!allCollections.includes(collection.value)) return
 
-  const res = await fetch(`${url}/apes/collections/${collection.value}.json`)
+  const res = await fetch(`${url}/collections/${collection.value}.json`)
   const body = await res.json()
   const rawApes: Ape[] = body.collection
 
