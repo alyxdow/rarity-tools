@@ -52,7 +52,7 @@ export default {
     // HTML link tags
     link: [
       // Favicon
-      { rel: 'icon', type: 'image/png',    href: '/apexgo-nft-rarity-tool.png'   },
+      // { rel: 'icon', type: 'image/png',    href: '/apexgo-nft-rarity-tool.png'   },
 
       // Favicon - Apple -----------------------------------------------------------------------------------------------------|
       { rel: 'apple-touch-icon', sizes: '57x57',   href: '/favicon/apple-icon-57x57.png'   },
@@ -145,4 +145,14 @@ export default {
       lang: 'en',
     },
   },
+
+  build: {
+    extend(config: any) {
+      config.module.rules.push({
+          test: /\.mjs$/,
+          include: /node_modules/,
+          type: 'javascript/auto'
+      })
+    }
+  }
 }

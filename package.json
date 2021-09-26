@@ -14,6 +14,7 @@
     "@nuxtjs/axios": "^5.13.6",
     "@nuxtjs/pwa": "^3.3.5",
     "@types/vue-select": "^3.11.2",
+    "@vueuse/core": "^6.5.3",
     "core-js": "^3.15.1",
     "cross-fetch": "^3.1.4",
     "lodash": "^4.17.21",

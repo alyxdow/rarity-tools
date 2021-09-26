@@ -2205,6 +2205,21 @@
     lodash "^4.17.15"
     pretty "^2.0.0"
 
+"@vueuse/core@^6.5.3":
+  version "6.5.3"
+  resolved "https://registry.yarnpkg.com/@vueuse/core/-/core-6.5.3.tgz#15848eaccad18652df4cb4b6ccae7bd7921a0c7e"
+  integrity sha512-o3CTu4nEqs371sDY5qLBX0r4QOm6GVpm3ApQc2Y+p8OMI2rRGartQo8xRykpUfsyq602A+SVtm/wxIWBkD/KCQ==
+  dependencies:
+    "@vueuse/shared" "6.5.3"
+    vue-demi "*"
+
+"@vueuse/shared@6.5.3":
+  version "6.5.3"
+  resolved "https://registry.yarnpkg.com/@vueuse/shared/-/shared-6.5.3.tgz#6503fa4bfbf45d0616bacedb8a4bd003f01da73b"
+  integrity sha512-ChOKu3mECyZeqGJ/gHVm0CaHoZK5/TwNZr1ZM/aqH+RaRNQvC1qkLf1/8PBugzN3yRgC3BtZ/M1kLpGe/BFylw==
+  dependencies:
+    vue-demi "*"
+
 "@webassemblyjs/ast@1.9.0":
   version "1.9.0"
   resolved "https://registry.yarnpkg.com/@webassemblyjs/ast/-/ast-1.9.0.tgz#bd850604b4042459a5a41cd7d338cbed695ed964"
@@ -10260,6 +10275,11 @@ vue-clipboard2@^0.3.3:
   integrity sha512-aNWXIL2DKgJyY/1OOeITwAQz1fHaCIGvUFHf9h8UcoQBG5a74MkdhS/xqoYe7DNZdQmZRL+TAdIbtUs9OyVjbw==
   dependencies:
     clipboard "^2.0.0"
+
+vue-demi@*:
+  version "0.11.4"
+  resolved "https://registry.yarnpkg.com/vue-demi/-/vue-demi-0.11.4.tgz#6101992fe4724cf5634018a16e953f3052e94e2a"
+  integrity sha512-/3xFwzSykLW2HiiLie43a+FFgNOcokbBJ+fzvFXd0r2T8MYohqvphUyDQ8lbAwzQ3Dlcrb1c9ykifGkhSIAk6A==
 
 vue-hot-reload-api@^2.3.0:
   version "2.3.4"
