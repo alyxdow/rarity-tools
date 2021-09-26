@@ -1,7 +1,8 @@
 import { defineComponent, ref, onMounted, useContext, computed } from '@nuxtjs/composition-api'
+import { useFavicon, usePreferredDark, get } from '@vueuse/core'
 import { filter, sortBy } from 'lodash'
 import { getApes } from '~/api/apes'
-import { collections } from '~/api/config'
+import { collections, url } from '~/api/config'
 import { Collection } from '~/types'
 
 export default defineComponent({
@@ -32,11 +33,18 @@ export default defineComponent({
       apes.value = [...apes.value, ...newApes]
     }
 
+    // Collection ------------------------------------------------------------------------------------------------------------|
     const toggleCollection = (collection: Collection) => {
       if (process.client) {
         localStorage.setItem('collection', collection.value)
       }
     }
+
+    // Favicon ---------------------------------------------------------------------------------------------------------------|
+    const userTheme = usePreferredDark()
+    const iconTheme = get(userTheme) ? 'dark' : 'light'
+    const icon = `${url}/favicon/${get(iconTheme)}.png`
+    useFavicon(get(icon))
 
     // On instance mounted ---------------------------------------------------------------------------------------------------|
     onMounted(() => {
