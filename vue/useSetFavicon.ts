@@ -1,16 +1,26 @@
-import { usePreferredDark, get, useFavicon } from '@vueuse/core'
-import { computed, onMounted } from '@nuxtjs/composition-api'
+import { usePreferredDark, get, set, useFavicon } from '@vueuse/core'
+import { computed } from '@nuxtjs/composition-api'
 import { url } from '~/api/config'
+
+/**
+ * Composable to edit the favicon of a page
+ * @param defaultIcon optional default icon path
+ * @returns icon ref, to edit on a setup function
+ */
 
 // prettier-ignore
 const useSetFavicon = (defaultIcon?: string) => {
-  if (defaultIcon) return useFavicon(`${url}/${defaultIcon}`)
+  const icon = useFavicon()
+
+  if (defaultIcon) return set(icon, defaultIcon)
 
   const userTheme = usePreferredDark()
   const iconTheme = computed(() => (get(userTheme) ? 'dark' : 'light')   )
-  const icon      = computed(() => `${url}/favicon/${get(iconTheme)}.png`)
+  const iconUrl   = computed(() => `${url}/favicon/${get(iconTheme)}.png`)
 
-  onMounted(() => useFavicon(get(icon)))
+  set(icon, get(iconUrl))
+
+  return { icon }
 }
 
 export default useSetFavicon
