@@ -4,18 +4,24 @@
 
 .header {
   @apply md:(
-    flex gap-x-24 items-center
-    py-4
+    flex flex-col gap-y-6 justify-center
+    pb-4
   );
 
-  @apply lg:(
-    grid grid-cols-3 gap-x-0
-    py-4 px-2
-  );
+  @apply xl:(gap-x-0 py-4 px-2);
+
+  &__container {
+    @apply flex justify-between items-center;
+    @apply py-[10px] px-[20px] w-full;
+    @apply shadow-header;
+
+    @apply md:shadow-none;
+  }
 
   &__logo {
-    @apply py-[10px] pl-[19px] mb-[30px];
-    @apply shadow-header cursor-pointer;
+    // @apply py-[10px] pl-[19px];
+    @apply cursor-pointer;
+    @apply inline-block;
 
     @apply md:(
       shadow-none
@@ -75,8 +81,14 @@
 
     @apply md:(
       flex-row items-center
-      gap-x-[9px]
-      h-12 my-0
+      gap-x-2
+      h-12 mt-0 mb-2 mx-auto
+      transform -translate-x-8
+    );
+
+    @apply xl:(
+      absolute right-[50%] top-7
+      transform translate-x-[45%]
     );
 
     &-title {
@@ -148,6 +160,13 @@
         -right-[82px]
         w-[84px]
       );
+    }
+  }
+
+  &__nav {
+    &-list {
+      @apply flex gap-x-4 mt-1;
+      @apply md:m-0;
     }
   }
 }
