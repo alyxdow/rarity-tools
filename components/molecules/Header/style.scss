@@ -166,7 +166,12 @@
   &__nav {
     &-list {
       @apply flex gap-x-4 mt-1;
-      @apply md:m-0;
+      @apply md:(gap-x-10 m-0);
+    }
+
+    &-link {
+      @apply hover:border-b border-b-black;
+      @apply md:(hover:border-b-2);
     }
   }
 }
