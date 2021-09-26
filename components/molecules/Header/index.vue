@@ -36,7 +36,7 @@
 
           <li class="header__nav-item">
             <a 
-              href="#" 
+              href="https://notionforms.io/forms/send-us-a-message-1" 
               class="header__nav-link" 
               target="_blank"
             >
