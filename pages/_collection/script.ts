@@ -4,6 +4,7 @@ import { filter, sortBy } from 'lodash'
 import { getApes } from '~/api/apes'
 import { collections, url } from '~/api/config'
 import { Collection } from '~/types'
+import useSetFavicon from '~/vue/useSetFavicon'
 
 export default defineComponent({
   setup() {
@@ -41,10 +42,7 @@ export default defineComponent({
     }
 
     // Favicon ---------------------------------------------------------------------------------------------------------------|
-    const userTheme = usePreferredDark()
-    const iconTheme = get(userTheme) ? 'dark' : 'light'
-    const icon = `${url}/favicon/${get(iconTheme)}.png`
-    useFavicon(get(icon))
+    useSetFavicon()
 
     // On instance mounted ---------------------------------------------------------------------------------------------------|
     onMounted(() => {

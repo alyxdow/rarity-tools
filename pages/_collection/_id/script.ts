@@ -2,6 +2,7 @@ import { defineComponent, ref, Ref, useContext, computed, watch, onMounted, useS
 import { filter, pickBy } from 'lodash'
 import { collections, url } from '~/api/config'
 import { Mutations } from '~/store/types'
+import useSetFavicon from '~/vue/useSetFavicon'
 
 export default defineComponent({
   transition: {
@@ -73,6 +74,9 @@ export default defineComponent({
         }
       })
     })
+
+    // Favicon ---------------------------------------------------------------------------------------------------------------|
+    useSetFavicon()
 
     // Return values ---------------------------------------------------------------------------------------------------------|
     return {
