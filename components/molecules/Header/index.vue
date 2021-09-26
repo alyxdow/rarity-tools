@@ -22,6 +22,7 @@
       </div>
 
       <nav class="header__nav">
+        <!-- prettier-ignore -->
         <ul class="header__nav-list">
           <li class="header__nav-item">
             <a
@@ -34,11 +35,23 @@
           </li>
 
           <li class="header__nav-item">
-            <a href="#" class="header__nav-link">Get in Touch</a>
+            <a 
+              href="#" 
+              class="header__nav-link" 
+              target="_blank"
+            >
+              Get in Touch
+            </a>
           </li>
 
           <li class="header__nav-item">
-            <a href="#" class="header__nav-link">Submit</a>
+            <a 
+              href="https://notionforms.io/forms/submit-your-nft-project-to-apexgoio" 
+              class="header__nav-link"
+              target="_blank"
+            >
+              Submit
+            </a>
           </li>
         </ul>
       </nav>
