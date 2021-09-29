@@ -3,176 +3,203 @@
 |----------------------------------------------------------------------------------------------------------------------------*/
 
 .header {
-  @apply md:(
-    flex flex-col gap-y-6 justify-center
-    pb-4
-  );
+  @apply
+    md:(
+      flex flex-col gap-y-6 justify-center
+      pb-4
+    )
 
-  @apply xl:(gap-x-0 py-4 px-2);
+    xl:(
+      gap-x-0 py-4 px-2
+    )
+  ;
 
   &__container {
-    @apply flex justify-between items-center;
-    @apply py-[10px] px-[20px] w-full;
-    @apply shadow-header;
-
-    @apply md:shadow-none;
+    @apply
+      flex justify-between items-center
+      py-10px px-20px w-full
+      shadow-header md:shadow-none
+    ;
   }
 
   &__logo {
-    // @apply py-[10px] pl-[19px];
-    @apply cursor-pointer;
-    @apply inline-block;
+    @apply
+      cursor-pointer
+      inline-block
 
-    @apply md:(
-      shadow-none
-      mb-0 py-1
-    );
+      md:(
+        mb-0 py-1
+      )
+    ;
 
     &-img {
-      @apply w-16;
-      @apply object-center object-cover;
+      @apply
+        w-16
+        object-center object-cover
+      ;
     }
 
     &--mobile {
-      @apply md:hidden;
+      @apply
+        md:hidden
+      ;
 
       & .header__logo-icon {
-        @apply h-8 left-1;
-        @apply top-1;
+        @apply
+          h-8
+          left-1 top-1
+        ;
 
         &.show {
-          @apply flex;
+          @apply
+            flex
+          ;
         }
 
         &.disabled {
-          @apply !hidden;
+          @apply
+            !hidden
+          ;
         }
       }
 
       & .header__logo-img {
-        @apply w-20;
-        @apply object-center object-cover;
+        @apply
+          w-20
+          object-center object-cover
+        ;
       }
     }
 
     &--desktop {
-      @apply hidden;
-      @apply md:flex;
+      @apply
+        hidden
+          md:flex
+      ;
     }
 
     &-icon {
-      @apply w-12 h-12;
-      @apply fixed z-999;
-      @apply duration-100;
+      @apply
+        w-12 h-12
+        fixed z-999
+        duration-100
+      ;
 
       &.scrolled {
-        @apply top-1 h-10;
+        @apply
+          h-10 top-1
+        ;
       }
     }
 
     &-text {
-      @apply h-12 ml-12;
+      @apply
+        h-12 ml-12
+      ;
     }
   }
 
   &__form {
-    @apply flex flex-col;
-    @apply my-[90px] mx-[26px];
-    @apply z-50;
+    @apply
+      flex flex-col
+      my-90px mx-26px
+      z-50
 
-    @apply md:(
-      flex-row items-center
-      gap-x-2
-      h-12 mt-0 mb-2 mx-auto
-      transform -translate-x-8
-    );
+      md:(flex-row items-center gap-x-2)
+      md:(h-12 mt-0 mb-2 mx-auto)
+      md:(transform -translate-x-8)
 
-    @apply xl:(
-      absolute right-[50%] top-7
-      transform translate-x-[45%]
-    );
+      xl:(absolute right-[50%])
+      xl:(top-7)
+      xl:(transform translate-x-[45%])
+    ;
 
     &-title {
-      @apply text-desktop font-info font-semi-bold leading-[25.36px];
-      @apply mb-[21px];
+      @apply 
+        text-desktop font-info font-semi-bold leading-25.36px
+        mb-21px
 
-      @apply md:hidden;
+        md:hidden
+      ;
     }
 
     &-field {
-      @apply flex flex-col;
-      @apply mb-[10px];
-
-      @apply md:(
-        mx-0 mb-0 h-11
-      );
+      @apply 
+        flex flex-col
+        mb-10px 
+          md:(mx-0 mb-0 h-11)
+      ;
     }
 
     &-label {
-      @apply mb-[10px];
-      @apply font-info font-semibold leading-[12.68px];
+      @apply
+        mb-10px
+        font-info font-semibold leading-12.68px
 
-      @apply md:hidden;
+        md:hidden
+      ;
     }
 
     &-select {
-      @apply w-full;
-      @apply border-none outline-none;
-      @apply bg-gray-light;
-      @apply rounded;
-
-      @apply md:(
-        h-full
-        w-[230px]
-      );
-      @apply 2md:w-[260px];
+      @apply 
+        w-full 
+          md:(h-full w-230px) 
+          2md:w-260px
+        border-none rounded outline-none
+        bg-gray-light
+      ;
     }
 
     &-id {
-      @apply relative;
-      @apply h-full;
+      @apply 
+        relative
+        h-full
+      ;
     }
 
     &-input {
-      @apply py-[13px] px-[20px] w-[281px] h-[34px];
-      @apply border-none outline-none;
-      @apply bg-gray-light;
-      @apply rounded;
-      @apply relative z-10;
-      @apply font-info;
-
-      @apply 3sm:w-[80%];
-      @apply 2sm:w-[82%];
-      @apply sm:w-[90%];
-      @apply md:(w-[130px] h-full);
-      @apply 2md:(w-[180px]);
-      @apply lg:(pt-[16px]);
+      @apply 
+        py-13px px-20px w-281px h-34px 
+          3sm:w-[80%]
+          2sm:w-[82%]
+          sm:w-[90%]
+          md:(w-130px h-full)
+          2md:(w-180px)
+          lg:(pt-16px)
+        border-none rounded outline-none
+        bg-gray-light
+        relative z-10
+        font-info
+      ;
     }
 
     &-submit {
-      @apply absolute;
-      @apply right-0 bottom-0 h-full w-[32%] pr-[15px];
-      @apply text-right font-bold leading-semibold;
-      @apply bg-primary-light;
-      @apply cursor-pointer rounded;
-
-      @apply 3sm:pr-[13px];
-      @apply md:(
-        -right-[82px]
-        w-[84px]
-      );
+      @apply 
+        absolute right-0 bottom-0 
+        h-full w-[32%] pr-15px
+          3sm:pr-13px
+          md:(-right-82px w-84px)
+        text-right font-bold leading-semibold
+        bg-primary-light
+        cursor-pointer rounded
+      ;
     }
   }
 
   &__nav {
     &-list {
-      @apply flex gap-x-4 mt-1;
-      @apply md:(gap-x-10 m-0);
+      @apply 
+        flex gap-x-4 mt-1
+        md:(gap-x-10 m-0)
+      ;
     }
 
     &-link {
-      @apply hover:border-b border-b-black;
-      @apply md:(hover:border-b-2);
+      @apply 
+      border-b-black
+          hover:border-b
+          md:(hover:border-b-2)
+      ;
     }
   }
 }
@@ -183,35 +210,30 @@
 
 .v-select .vs {
   &__dropdown-toggle {
-    @apply py-2 pl-[20px] pr-[15px];
-    @apply h-[34px];
-    @apply border-none;
-
-    @apply md:(
-      h-full
-    );
+    @apply
+      py-2 pl-20px pr-15px
+      h-34px
+        md:(h-full)
+      border-none
+    ;
   }
 
   &__selected {
-    @apply m-0 p-0;
+    @apply
+      m-0 p-0
+    ;
 
     &-options {
-      @apply p-0;
-      @apply flex items-center;
+      @apply
+        flex items-center
+        p-0
+      ;
     }
   }
 
   &__actions {
-    @apply md:pt-0;
+    @apply 
+      md:pt-0
+    ;
   }
-}
-
-.icon-enter-from,
-.icon-leave-to {
-  opacity: 0;
-}
-
-.icon-enter-active,
-.icon-leave-active {
-  transition: all 0.1s ease-in;
 }

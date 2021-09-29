@@ -1,33 +1,43 @@
 .trait {
-  @apply mt-5;
-  @apply relative;
+  @apply
+    mt-5
+    relative
+  ;
 
   &__name {
-    @apply font-semibold;
+    @apply 
+      font-semibold
+    ;
   }
 
   &__content {
-    @apply bg-gray-light;
-    @apply flex justify-between;
-    @apply mt-1;
+    @apply
+      mt-1
+      flex justify-between
+      bg-gray-light
+    ;
   }
 
   &__value {
-    @apply px-2 py-1;
-    @apply font-medium;
+    @apply
+      px-2 py-1
+      font-medium
+    ;
   }
 
   &__count {
-    @apply bg-primary-light;
-    @apply flex justify-center items-center;
-    @apply w-10;
-    @apply rounded font-semibold;
-
-    @apply md:w-16;
+    @apply
+      bg-primary-light
+      flex justify-center items-center
+      w-10 md:w-16
+      rounded font-semibold
+    ;
   }
 
   &__score {
-    @apply absolute top-0 right-0;
-    @apply text-primary font-semibold;
+    @apply
+      absolute top-0 right-0
+      text-primary font-semibold
+    ;
   }
 }

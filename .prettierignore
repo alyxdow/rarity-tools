@@ -1,0 +1,7 @@
+# Ignore all HTML / Vue
+*.html
+*.vue
+
+# Ignore all SCSS / CSS
+*.scss
+*.css

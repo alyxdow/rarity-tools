@@ -1,62 +1,77 @@
 .main {
   &__tabs {
-    @apply bg-gray-light bg-opacity-60 mb-[40px];
-    @apply sticky top-0 z-10;
-    @apply backdrop-filter backdrop-blur-xl;
+    @apply
+      bg-gray-light bg-opacity-60 mb-40px
+      sticky top-0 z-10
+      backdrop-filter backdrop-blur-xl
+    ;
 
     &-list {
-      @apply flex justify-center gap-x-9;
+      @apply
+        flex justify-center gap-x-9
+      ;
     }
 
     &-item {
-      @apply py-3;
-      @apply cursor-pointer;
+      @apply
+        py-3
+        cursor-pointer
+      ;
 
       &--active {
-        @apply border-b-black border-b-2;
-        @apply rounded-sm;
+        @apply
+          border-b-black border-b-2
+          rounded-sm
+        ;
       }
     }
   }
 
   &__gallery {
-    @apply mx-6 pb-12;
-    @apply grid gap-[40px];
-
-    @apply md:grid-cols-2;
-    @apply lg:grid-cols-3;
-
+    @apply
+      mx-6 pb-12
+      grid gap-[40px] 
+        md:(grid-cols-2) 
+        lg:(grid-cols-3)
+    ;
+    
     &-image {
       & img {
-        @apply w-full h-auto;
+        @apply
+          w-full h-auto
+        ;
       }
     }
   }
 
   &__loading {
-    @apply text-center text-xl font-info;
-    @apply my-12;
+    @apply
+      text-center text-xl font-info
+      my-12
+    ;
   }
 
   &__load {
-    @apply max-w-32 mx-auto mb-8;
-    @apply flex justify-center;
-
-    @apply md:max-w-64;
+    @apply
+      max-w-32 mx-auto mb-8 md:max-w-64
+      flex justify-center
+    ;
 
     &-btn {
-      @apply bg-primary-light;
-      @apply py-2 px-4;
+      @apply
+        bg-primary-light
+        py-2 px-4
+      ;
     }
   }
 }
 
 .ape-enter-from,
 .ape-leave-to {
-  opacity: 0;
+  opacity: 0
 }
 
 .ape-enter-active,
 .ape-leave-active {
-  transition: all 0.3s ease;
+  transition: all 0.3s ease
 }

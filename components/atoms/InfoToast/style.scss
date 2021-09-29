@@ -1,26 +1,25 @@
 .toast {
-  @apply bg-primary-light;
-  @apply rounded;
-  @apply pl-3 pr-10 py-3;
-  @apply relative;
-
-  @apply md:pr-14;
+  @apply
+    bg-primary-light
+    rounded
+    pl-3 pr-10 py-3 md:pr-14
+    relative
+  ;
 
   &__text {
-    @apply text-desktop font-semibold;
+    @apply
+      text-desktop font-semibold
+    ;
   }
 
   &__info {
-    @apply absolute -right-[23%] top-[50%];
-    @apply transform -translate-y-[50%];
-    @apply bg-black text-white;
-    @apply py-1 px-2 min-w-14;
-    @apply flex justify-center;
-    @apply rounded;
-
-    @apply md:(
-      -right-[31%]
-      min-w-20
-    );
+    @apply
+      absolute top-[50%] -right-[23%] md:-right-[31%]
+      transform -translate-y-[50%]
+      bg-black text-white
+      py-1 px-2 min-w-14 md:min-w-20
+      flex justify-center
+      rounded
+    ;
   }
 }
