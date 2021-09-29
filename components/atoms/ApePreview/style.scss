@@ -50,8 +50,8 @@
 }
 
 .thumbnail .preview {
-  @apply bg-gray-light;
-  @apply p-2;
+  @apply bg-gray-light bg-opacity-50;
+  @apply py-2 px-3;
   @apply cursor-pointer;
   @apply relative;
 
@@ -65,33 +65,33 @@
   }
 
   &__content {
+    @apply max-w-[80%];
     @apply font-info;
-  }
-
-  &__name {
-    @apply mb-2;
   }
 
   &__id {
     @apply px-2 py-1;
     @apply bg-hex-030303 text-primary;
-    @apply font-semibold text-xs;
+    @apply font-semibold;
     @apply rounded;
-    @apply absolute right-2 bottom-2;
+    @apply absolute right-3 bottom-2;
   }
 
   &__score {
     &-score {
       @apply px-1;
-      @apply bg-secondary;
-      @apply font-semibold;
+      @apply bg-secondary rounded-sm;
+      @apply font-medium text-[8px];
+
+      @apply lg:(text-[13px]);
     }
   }
 }
 
 .list .preview {
   @apply grid grid-cols-16 grid-rows-1 items-center gap-4;
-  @apply py-3 px-6;
+  @apply py-2 px-6;
+  @apply cursor-pointer;
 
   @apply md:pl-0;
   @apply lg:(
@@ -101,7 +101,7 @@
 
   &__image {
     @apply col-start-3;
-    @apply w-[26px];
+    @apply w-10;
     @apply overflow-hidden;
     @apply rounded;
 
@@ -135,9 +135,10 @@
 
   &__score {
     &-score {
-      @apply py-[2px] px-1 mb-1;
-      @apply bg-secondary;
+      @apply py-[2px] px-1 mb-1 ml-1;
+      @apply bg-secondary rounded-sm;
       @apply font-semibold;
+      @apply font-info;
     }
   }
 }

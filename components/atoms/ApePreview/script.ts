@@ -1,4 +1,4 @@
-import { defineComponent, ref, useContext, useFetch, useStore } from '@nuxtjs/composition-api'
+import { defineComponent, ref, useContext, useFetch, computed } from '@nuxtjs/composition-api'
 import { calculateApeScorePoint } from '~/api/rarity'
 import { Mutations } from '~/store/types'
 
@@ -6,6 +6,10 @@ export default defineComponent({
   props: ['ape'],
 
   setup(props) {
+    // Nuxt variables / methods ----------------------------------------------------------------------------------------------|
+    const { redirect, store } = useContext()
+
+    // Fetch ape score from API ----------------------------------------------------------------------------------------------|
     const apeScore = ref()
 
     useFetch(async () => {
@@ -13,14 +17,20 @@ export default defineComponent({
       apeScore.value = await calculateApeScorePoint(props.ape)
     })
 
-    const { commit } = useStore()
-    const { redirect } = useContext()
+    // Handle user click -----------------------------------------------------------------------------------------------------|
     const evaluateApe = () => {
-      commit(Mutations.CLEAR_APE_INFO)
-
+      store.commit(Mutations.CLEAR_APE_INFO)
       redirect(`/${props.ape.collection.value}/${props.ape.tokenId}`)
     }
 
-    return { apeScore, evaluateApe }
+    // Choose the right view -------------------------------------------------------------------------------------------------|
+    const activeView = computed(() => store.state.activeView)
+
+    // Return values ---------------------------------------------------------------------------------------------------------|
+    return {
+      apeScore,
+      evaluateApe,
+      activeView,
+    }
   },
 })
