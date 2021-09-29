@@ -3,15 +3,6 @@
     <div class="header__container">
       <div class="header__logo" @click="goHome">
         <div class="header__logo--mobile">
-          <transition name="icon">
-            <img
-              src="~/assets/svg/logo-icon.svg"
-              alt="Logo"
-              v-if="mobileScroll"
-              class="header__logo-icon"
-              :class="{ disabled: $route.fullPath != '/home' }"
-            />
-          </transition>
           <img src="~/assets/svg/logo.svg" class="header__logo-img" alt="Logo" />
         </div>
 

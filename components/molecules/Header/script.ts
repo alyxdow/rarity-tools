@@ -24,9 +24,8 @@ export default defineComponent({
       redirect('/')
     }
 
-    const { hasScrolled: desktopScroll } = useScroll(56)
-    const { hasScrolled: mobileScroll } = useScroll(400)
+    const { hasScrolled: desktopScroll } = useScroll(1)
 
-    return { collections, collection, evaluateApe, apeId, goHome, desktopScroll, mobileScroll }
+    return { collections, collection, evaluateApe, apeId, goHome, desktopScroll }
   },
 })
