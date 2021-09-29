@@ -1,7 +1,6 @@
 import { defineComponent, ref, onMounted, useContext, computed } from '@nuxtjs/composition-api'
-import { useFavicon, usePreferredDark, get } from '@vueuse/core'
 import { filter, sortBy } from 'lodash'
-import { getApes } from '~/api/apes'
+import { getApes, getRandomApes } from '~/api/apes'
 import { collections, url } from '~/api/config'
 import { Collection } from '~/types'
 import useSetFavicon from '~/vue/useSetFavicon'
@@ -16,7 +15,7 @@ export default defineComponent({
     const collectionValue = computed(() => filter(collections, { value: route.value.params.collection })[0])
     const getFirstApes = async () => {
       // Show them sorted by ID
-      apes.value = sortBy(await getApes(collectionValue.value), 'tokenId')?.slice(0, 3)
+      apes.value = sortBy(await getApes(collectionValue.value), 'tokenId')?.slice(0, 6)
 
       // Show them in random position
       // apes.value = await getRandomApes(collectionValue.value, 3)
@@ -49,6 +48,9 @@ export default defineComponent({
       getFirstApes()
     })
 
+    // Views -----------------------------------------------------------------------------------------------------------------|
+    const activeView = computed(() => store.state.activeView)
+
     // Return values ---------------------------------------------------------------------------------------------------------|
     return {
       apes,
@@ -57,6 +59,7 @@ export default defineComponent({
       getFirstApes,
       getMoreApes,
       toggleCollection,
+      activeView,
     }
   },
 })

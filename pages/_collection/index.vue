@@ -1,24 +1,31 @@
 <template>
   <div class="main">
     <div class="main__tabs">
-      <ul class="main__tabs-list">
-        <li
-          class="main__tabs-item"
-          :class="{
-            'main__tabs-item--active': collectionValue.value === collection.value,
-          }"
-          v-for="collection in collections"
-          :key="collection.value"
-          @click="toggleCollection(collection)"
-        >
-          <nuxt-link :to="`/${collection.value}`">
-            {{ collection.name }}
-          </nuxt-link>
-        </li>
-      </ul>
+      <div class="main__tabs__container">
+        <ul class="main__tabs-list">
+          <li
+            class="main__tabs-item"
+            v-for="collection in collections"
+            :key="collection.value"
+            @click="toggleCollection(collection)"
+            :class="{ 'main__tabs-item--active': collectionValue.value === collection.value }"
+          >
+            <nuxt-link :to="`/${collection.value}`">
+              {{ collection.name }}
+            </nuxt-link>
+          </li>
+        </ul>
+
+        <!-- prettier-ignore -->
+        <div class="main__view">
+          <HomeView value="gallery"   icon="filter-gallery"   type="svg" />
+          <HomeView value="thumbnail" icon="filter-thumbnail" type="svg" />
+          <HomeView value="list"      icon="filter-list"      type="svg" />
+        </div>
+      </div>
     </div>
 
-    <div class="main__gallery" v-if="apes">
+    <div v-if="apes" class="main__gallery" :class="activeView">
       <div class="main__gallery-image" v-for="ape in apes" :key="ape.tokenId">
         <ApePreview :ape="ape" />
       </div>

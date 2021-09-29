@@ -8,6 +8,8 @@ export interface State {
   apeRarity   : null | Trait  
 
   collections : Collection[]
+
+  activeView: string
 }
 
 export interface Getters {
@@ -18,6 +20,7 @@ export interface Getters {
 export enum Mutations {
   SET_APE        = 'SET_APE'       ,
   CLEAR_APE_INFO = 'CLEAR_APE_INFO',
+  SET_VIEW       = 'SET_VIEW'      ,
 }
 
 export type RootType = ReturnType<() => State>
@@ -25,6 +28,7 @@ export type RootType = ReturnType<() => State>
 export interface MutationsInterface extends MutationTree<RootType> {
   [Mutations.SET_APE](s: State, p: any): void
   [Mutations.CLEAR_APE_INFO](s: State): void
+  [Mutations.SET_VIEW](s: State, p: string): void
 }
 
 export interface Actions {

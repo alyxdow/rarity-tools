@@ -11,6 +11,8 @@ export const state = (): State => ({
   apeScore    : null,
 
   collections : collections,
+
+  activeView: 'gallery'
 })
 
 export const getters: Getters = {
@@ -29,6 +31,10 @@ export const mutations: MutationsInterface = {
     state.ape       = null
     state.apeRarity = null
     state.apeScore  = null
+  },
+
+  [Mutations.SET_VIEW](state, newView) {
+    state.activeView = newView
   }
 }
 

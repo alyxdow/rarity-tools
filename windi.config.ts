@@ -6,12 +6,13 @@ export default defineConfig({
   theme: {
     extend: {
       colors: {
-        primary:         '#42FFC6',
-        'primary-light': '#B6FFE0',
-        black:           '#000000',
-        white:           '#ffffff',
-        'gray-light':    '#F2F4F8',
-        'blue-gray':     '#B6C0D5',
+        primary         : '#42FFC6',
+        'primary-light' : '#B6FFE0',
+        secondary       : '#F3BBF9',
+        black           : '#000000',
+        white           : '#ffffff',
+        'gray-light'    : '#F2F4F8',
+        'blue-gray'     : '#B6C0D5',
       },
 
       screens: {
