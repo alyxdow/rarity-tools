@@ -6,7 +6,7 @@
 
   &__name {
     @apply 
-      font-semibold
+      font-normal
     ;
   }
 
@@ -21,7 +21,7 @@
   &__value {
     @apply
       px-2 py-1
-      font-medium
+      lg:font-info300
     ;
   }
 

@@ -39,6 +39,9 @@
       absolute top-3 left-3
       p-1 px-2
       rounded
+
+      md:(text-big)
+      lg:(font-info700)
     ;
   }
 
@@ -50,18 +53,20 @@
 
   &__name {
     @apply
-      text-base
+      text-medium md:text-big lg:font-info500
+      lg: mb-10px
     ;
   }
 
   &__score {
     @apply
-      text-xs
+      text-smaller md:text-base lg:font-info700
     ;
 
     &-score {
       @apply
-        text-primary
+        px-1 py-3px ml-3px
+        bg-secondary text-black
       ;
     }
   }

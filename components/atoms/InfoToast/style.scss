@@ -8,7 +8,7 @@
 
   &__text {
     @apply
-      text-desktop font-semibold
+      text-big font-body500
     ;
   }
 
@@ -19,7 +19,7 @@
       bg-black text-white
       py-1 px-2 min-w-14 md:min-w-20
       flex justify-center
-      rounded
+      rounded font-number font-bold tracking-wide
     ;
   }
 }

@@ -117,7 +117,7 @@
 
     &-title {
       @apply 
-        text-desktop font-info font-semi-bold leading-25.36px
+        text-biggest font-info600 font-semi-bold leading-25.36px
         mb-21px
 
         md:hidden
@@ -135,7 +135,7 @@
     &-label {
       @apply
         mb-10px
-        font-info font-semibold leading-12.68px
+        font-info500 font-semibold leading-12.68px
 
         md:hidden
       ;
@@ -180,7 +180,7 @@
         h-full w-[32%] pr-15px
           3sm:pr-13px
           md:(-right-82px w-84px)
-        text-right font-bold leading-semibold
+        text-right font-body500 leading-semibold
         bg-primary-light
         cursor-pointer rounded
       ;

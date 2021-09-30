@@ -16,6 +16,7 @@
       @apply
         py-3
         cursor-pointer
+        text-smaller md:text-base
       ;
 
       &--active {
@@ -30,7 +31,7 @@
   &__gallery {
     @apply
       mx-6 pb-12
-      grid gap-[40px] 
+      grid gap-5 
         md:(grid-cols-2) 
         lg:(grid-cols-3)
     ;

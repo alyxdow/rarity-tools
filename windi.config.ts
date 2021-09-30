@@ -6,12 +6,13 @@ export default defineConfig({
   theme: {
     extend: {
       colors: {
-        primary:         '#42FFC6',
-        'primary-light': '#B6FFE0',
-        black:           '#000000',
-        white:           '#ffffff',
-        'gray-light':    '#F2F4F8',
-        'blue-gray':     '#B6C0D5',
+        primary         : '#42FFC6',
+        secondary       : '#F3BBF9',
+        'primary-light' : '#B6FFE0',
+        black           : '#000000',
+        white           : '#ffffff',
+        'gray-light'    : '#F2F4F8',
+        'blue-gray'     : '#B6C0D5',
       },
 
       screens: {
@@ -26,14 +27,28 @@ export default defineConfig({
       },
 
       fontFamily: {
-        body:   [`"Suisse Int'l Regular"`,      'sans-serif'],
-        info:   ["'Euclid Circular A Regular'", 'sans-serif'],
-        number: ['Roboto',                      'sans-serif'],
+        body   : [`"Suisse Int'l Regular"`,      'sans-serif'],
+        info   : ["'Euclid Circular A Regular'", 'sans-serif'],
+        number : ['Roboto',                      'sans-serif'],
+
+        body500 : [`"Suisse Int'l Medium"`,      'sans-serif'],
+        body700 : [`"Suisse Int'l Bold"`,        'sans-serif'],
+
+        info300 : ['Euclid Circular A Light',    'sans-serif'],
+        info500 : ['Euclid Circular A Medium',   'sans-serif'],
+        info600 : ['Euclid Circular A SemiBold', 'sans-serif'],
+        info700 : ['Euclid Circular A Bold',     'sans-serif'],
       },
 
       fontSize: {
-        mobile: '10px',
-        desktop: '15px',
+        base     : '10px'   ,
+        biggest  : '20px'   ,
+        bigger   : '19.02px',
+        big      : '15px'   ,
+        medium   : '12.68px',
+        small    : '9.97px' ,
+        smaller  : '8px'    ,
+        smallest : '6px'    ,
       },
 
       fontWeight: {
