@@ -214,6 +214,14 @@
         ;
       }
     }
+
+    &--mobile {
+      @apply md:hidden;
+    }
+
+    &--desktop {
+      @apply hidden md:flex
+    }
   }
 }
 

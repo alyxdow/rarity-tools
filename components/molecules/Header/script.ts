@@ -29,8 +29,20 @@ export default defineComponent({
     const { hasScrolled: desktopScroll } = useScroll(80)
 
     const navList = ref()
-    const { showModal, toggleModal } = useModal(navList)
+    const { showModal, toggleModal } = useModal(navList, false)
+    const isMediumScreen = useMediaQuery('(min-width: 768px)')
 
-    return { collections, collection, evaluateApe, apeId, goHome, desktopScroll, showModal, navList, toggleModal }
+    return {
+      collections,
+      collection,
+      evaluateApe,
+      apeId,
+      goHome,
+      desktopScroll,
+      showModal,
+      isMediumScreen,
+      navList,
+      toggleModal,
+    }
   },
 })

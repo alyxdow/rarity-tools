@@ -64,7 +64,7 @@ export default defineComponent({
 
     // Share menu ------------------------------------------------------------------------------------------------------------|
     const menu = ref()
-    const { showModal, toggleModal } = useModal(menu)
+    const { showModal, toggleModal } = useModal(menu, true)
     const linkCopied = ref(false)
     const copyUrl = () => (linkCopied.value = true)
 
