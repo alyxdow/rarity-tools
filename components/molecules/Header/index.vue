@@ -1,6 +1,6 @@
 <template>
   <header class="header">
-    <div class="header__container">
+    <div class="header__container" ref="navContainer">
       <div class="header__logo" @click="goHome">
         <div class="header__logo--mobile">
           <img src="~/assets/svg/logo.svg" class="header__logo-img" alt="Logo" />
@@ -19,7 +19,7 @@
           <div class="header__nav--mobile" v-show="showModal">
             <img class="header__nav-list-triangle" src="~/assets/svg/toolbox-triangle.svg" alt="hamburger">
 
-              <ul class="header__nav-list" ref="navList">
+              <ul class="header__nav-list">
                 <HeaderLink 
                   href="https://apexgo.notion.site/apexgo/Apexgo-io-a3e697ef5cc14ad782112c52cb627896"
                   icon="book"
