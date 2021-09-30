@@ -13,34 +13,36 @@
       </div>
 
       <nav class="header__nav">
-        <img class="header__nav-toggler" src="~/assets/svg/hamburger.svg" alt="hamburger" @click="showMenu = !showMenu">
-
+        <img class="header__nav-toggler" src="~/assets/svg/hamburger.svg" alt="hamburger" @click="toggleModal">
         <!-- prettier-ignore -->
-        <div v-show="showMenu">
-          <img class="header__nav-list-triangle" src="~/assets/svg/toolbox-triangle.svg" alt="hamburger">
-          <ul class="header__nav-list">
-            <HeaderLink 
-              href="https://apexgo.notion.site/apexgo/Apexgo-io-a3e697ef5cc14ad782112c52cb627896"
-              icon="book"
-            >
-              Learn
-            </HeaderLink>
+        <transition name="menu">
+          <div v-show="showModal">
+            <img class="header__nav-list-triangle" src="~/assets/svg/toolbox-triangle.svg" alt="hamburger">
 
-            <HeaderLink
-              href="https://notionforms.io/forms/send-us-a-message-1"
-              icon="at"
-            >
-              Get in Touch
-            </HeaderLink>
+              <ul class="header__nav-list" ref="navList">
+                <HeaderLink 
+                  href="https://apexgo.notion.site/apexgo/Apexgo-io-a3e697ef5cc14ad782112c52cb627896"
+                  icon="book"
+                >
+                  Learn
+                </HeaderLink>
 
-            <HeaderLink
-              href="https://notionforms.io/forms/submit-your-nft-project-to-apexgoio"
-              icon="cloud"
-            >
-              Submit
-            </HeaderLink>
-          </ul>
-        </div>
+                <HeaderLink
+                  href="https://notionforms.io/forms/send-us-a-message-1"
+                  icon="at"
+                >
+                  Get in Touch
+                </HeaderLink>
+
+                <HeaderLink
+                  href="https://notionforms.io/forms/submit-your-nft-project-to-apexgoio"
+                  icon="cloud"
+                >
+                  Submit
+                </HeaderLink>
+              </ul>
+          </div>
+        </transition>
       </nav>
     </div>
 

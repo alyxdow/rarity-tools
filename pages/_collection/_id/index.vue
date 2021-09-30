@@ -43,9 +43,9 @@
         <div class="ape__rarity">
           <InfoToast text="Rarity Score" :info="`${apeScore}`" />
           <div class="ape__share">
-            <i class="ape__share-icon ri-share-fill" @click="showShareMenu = !showShareMenu"></i>
+            <i class="ape__share-icon ri-share-fill" @click="toggleModal"></i>
             <transition name="menu">
-              <ul class="ape__share-menu" v-if="showShareMenu">
+              <ul class="ape__share-menu" v-show="showModal" ref="menu">
                 <i class="ape__share-triangle ri-arrow-up-s-fill"></i>
                 <li class="ape__share-item" @click="copyUrl">
                   <span class="ape__share-link" v-clipboard:copy="url + $route.fullPath">Copy URL</span>

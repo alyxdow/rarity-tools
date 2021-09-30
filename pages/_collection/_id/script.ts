@@ -2,6 +2,7 @@ import { defineComponent, ref, Ref, useContext, computed, watch, onMounted, useS
 import { filter, pickBy } from 'lodash'
 import { collections, url } from '~/api/config'
 import { Mutations } from '~/store/types'
+import useModal from '~/vue/useModal'
 import useSetFavicon from '~/vue/useSetFavicon'
 
 export default defineComponent({
@@ -62,7 +63,8 @@ export default defineComponent({
     }
 
     // Share menu ------------------------------------------------------------------------------------------------------------|
-    const showShareMenu = ref(false)
+    const menu = ref()
+    const { showModal, toggleModal } = useModal(menu)
     const linkCopied = ref(false)
     const copyUrl = () => (linkCopied.value = true)
 
@@ -89,7 +91,9 @@ export default defineComponent({
       apeScore,
       clearApe,
       collection,
-      showShareMenu,
+      menu,
+      showModal,
+      toggleModal,
       copyUrl,
       url,
       linkCopied,

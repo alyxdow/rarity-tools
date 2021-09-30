@@ -3,6 +3,7 @@ import { useMediaQuery } from '@vueuse/core'
 import { filter } from 'lodash'
 import { collections as allCollections } from '~/api/config'
 import { Mutations } from '~/store/types'
+import useModal from '~/vue/useModal'
 import { useScroll } from '~/vue/useScroll'
 
 export default defineComponent({
@@ -27,10 +28,9 @@ export default defineComponent({
 
     const { hasScrolled: desktopScroll } = useScroll(80)
 
-    const showMenu = ref(false)
-    const isMediumScreen = useMediaQuery('(min-width: 768px)')
-    if (isMediumScreen) showMenu.value = true
+    const navList = ref()
+    const { showModal, toggleModal } = useModal(navList)
 
-    return { collections, collection, evaluateApe, apeId, goHome, desktopScroll, showMenu }
+    return { collections, collection, evaluateApe, apeId, goHome, desktopScroll, showModal, navList, toggleModal }
   },
 })
