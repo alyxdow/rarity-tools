@@ -1,4 +1,5 @@
 import { defineComponent, ref, useContext, useStore, computed } from '@nuxtjs/composition-api'
+import { useMediaQuery } from '@vueuse/core'
 import { filter } from 'lodash'
 import { collections as allCollections } from '~/api/config'
 import { Mutations } from '~/store/types'
@@ -26,6 +27,10 @@ export default defineComponent({
 
     const { hasScrolled: desktopScroll } = useScroll(1)
 
-    return { collections, collection, evaluateApe, apeId, goHome, desktopScroll }
+    const showMenu = ref(false)
+    const isMediumScreen = useMediaQuery('(min-width: 768px)')
+    if (isMediumScreen) showMenu.value = true
+
+    return { collections, collection, evaluateApe, apeId, goHome, desktopScroll, showMenu }
   },
 })

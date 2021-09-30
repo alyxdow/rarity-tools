@@ -13,38 +13,34 @@
       </div>
 
       <nav class="header__nav">
+        <img class="header__nav-toggler" src="~/assets/svg/hamburger.svg" alt="hamburger" @click="showMenu = !showMenu">
+
         <!-- prettier-ignore -->
-        <ul class="header__nav-list">
-          <li class="header__nav-item">
-            <a
-              href="https://odd-cave-7cc.notion.site/Apexgo-io-a3e697ef5cc14ad782112c52cb627896"
-              class="header__nav-link"
-              target="_blank"
+        <div v-show="showMenu">
+          <img class="header__nav-list-triangle" src="~/assets/svg/toolbox-triangle.svg" alt="hamburger">
+          <ul class="header__nav-list">
+            <HeaderLink 
+              href="https://apexgo.notion.site/apexgo/Apexgo-io-a3e697ef5cc14ad782112c52cb627896"
+              icon="book"
             >
               Learn
-            </a>
-          </li>
+            </HeaderLink>
 
-          <li class="header__nav-item">
-            <a 
-              href="https://notionforms.io/forms/send-us-a-message-1" 
-              class="header__nav-link" 
-              target="_blank"
+            <HeaderLink
+              href="https://notionforms.io/forms/send-us-a-message-1"
+              icon="at"
             >
               Get in Touch
-            </a>
-          </li>
+            </HeaderLink>
 
-          <li class="header__nav-item">
-            <a 
-              href="https://notionforms.io/forms/submit-your-nft-project-to-apexgoio" 
-              class="header__nav-link"
-              target="_blank"
+            <HeaderLink
+              href="https://notionforms.io/forms/submit-your-nft-project-to-apexgoio"
+              icon="cloud"
             >
               Submit
-            </a>
-          </li>
-        </ul>
+            </HeaderLink>
+          </ul>
+        </div>
       </nav>
     </div>
 

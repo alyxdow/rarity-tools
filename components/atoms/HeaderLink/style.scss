@@ -1,0 +1,16 @@
+.header__item {
+  &-link {
+    @apply
+      flex items-center
+      font-info font-medium
+    ;
+  }
+
+  &-icon {
+    @apply
+      mr-10px w-13px
+
+      md:hidden
+    ;
+  }
+}
