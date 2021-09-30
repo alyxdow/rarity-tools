@@ -10,6 +10,7 @@ import { rules } from './config'
  * @param traitName trait name to filter
  * @param traitValue trait value to find
  * @returns rarity of some trait on a collection
+ * @deprecated this function is now on the API
  */
 
 export const calculateRarity = async <TraitName extends keyof AllTraits>(
@@ -43,6 +44,7 @@ export const calculateRarity = async <TraitName extends keyof AllTraits>(
  * Method to calculate the rarity of all traits on a ape
  * @param ape ape to be evaluated
  * @returns an object with all traits rarity
+ * @deprecated this function is now on the API
  */
 
 export const calculateApeRarity = async (ape: Ape) => {
@@ -67,6 +69,7 @@ export const calculateApeRarity = async (ape: Ape) => {
  * Method to calculate how much a ape worths
  * @param ape ape to be evaluated
  * @returns the score points as a number
+ * @deprecated this function is now on the API
  */
 
 export const calculateApeScorePoint = async (ape: Ape) => {

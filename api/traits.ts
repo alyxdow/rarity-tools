@@ -47,6 +47,7 @@ export const getTraits = async (collection: Collection) => {
  * Method to count how many times a trait repeat on a collection
  * @param traitsArr array with all traits to verify
  * @returns an object with the count
+ * @deprecated this function is now on the API
  */
 
 export const sumTraits = (traitsArr: string[]) => {
@@ -62,13 +63,13 @@ export const sumTraits = (traitsArr: string[]) => {
  * @param traitName name of trait to count
  * @param traitValue value of trait to count
  * @returns the repetition number
+ * @deprecated this function is now on the API
  */
 export const getTraitNumberOfRepetitions = async <TraitName extends keyof AllTraits>(
   collection: Collection,
   traitName: TraitName,
   traitValue: string
 ) => {
-  // TODO: evaluate type of ape
   const allTraits = await getTraits(collection)
   if (!allTraits) return
 

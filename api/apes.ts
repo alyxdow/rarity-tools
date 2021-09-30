@@ -30,6 +30,7 @@ export const getApes = async (collection: Collection) => {
  * @param collection collection name to find
  * @param apeId tokenId to search
  * @returns the ape that corresponds to id
+ * @deprecated this function is now on the API
  */
 
 export const getApe = async (collection: Collection, apeId: string | number) => {
