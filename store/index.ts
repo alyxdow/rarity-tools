@@ -10,6 +10,8 @@ export const state = (): State => ({
   apeRarity   : null,
   apeScore    : null,
 
+  error       : false,
+
   collections : collections,
 })
 
@@ -29,13 +31,18 @@ export const mutations: MutationsInterface = {
     state.ape       = null
     state.apeRarity = null
     state.apeScore  = null
+    state.error     = false
+  },
+
+  [Mutations.SET_ERROR](state, error) {
+    state.error = error
   }
 }
 
 export const actions: Actions = {
   async evaluateApe({ commit }: any, apeInfo) {
     const ape = await getApe(apeInfo.collection, apeInfo.apeId)
-    if (!ape) return alert(`Ape ${apeInfo.apeId} not found`)
+    if (!ape) return commit(Mutations.SET_ERROR, true)
 
     const apeRarity = await calculateApeRarity(ape)
     const apeScore = await calculateApeScorePoint(ape)

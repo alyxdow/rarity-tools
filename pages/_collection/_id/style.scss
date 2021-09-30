@@ -187,6 +187,14 @@
     ;
   }
 
+  &__error {
+    @apply
+      h-full
+      flex justify-center items-center
+      text-2xl font-info
+    ;
+  }
+
   &__loading {
     @apply
       h-full

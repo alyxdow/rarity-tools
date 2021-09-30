@@ -37,6 +37,9 @@ export default defineComponent({
       }
     })
 
+    // Error -----------------------------------------------------------------------------------------------------------------|
+    const error = computed(() => store.state.error)
+
     // Ape traits ------------------------------------------------------------------------------------------------------------|
     const traits: Ref<any[]> = ref([])
     watch(ape, () => {
@@ -81,6 +84,7 @@ export default defineComponent({
     // Return values ---------------------------------------------------------------------------------------------------------|
     return {
       ape,
+      error,
       traits,
       apeScore,
       clearApe,
