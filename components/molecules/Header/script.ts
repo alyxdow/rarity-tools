@@ -25,7 +25,7 @@ export default defineComponent({
       redirect('/')
     }
 
-    const { hasScrolled: desktopScroll } = useScroll(1)
+    const { hasScrolled: desktopScroll } = useScroll(80)
 
     const showMenu = ref(false)
     const isMediumScreen = useMediaQuery('(min-width: 768px)')
