@@ -1,14 +1,25 @@
 .main {
+  // @apply overflow-hidden;
+
   &__tabs {
     @apply
-      bg-gray-light bg-opacity-60 mb-40px
-      sticky top-0 z-10
-      backdrop-filter backdrop-blur-xl
+      bg-white bg-opacity-60 mb-40px
+      h-40px
+      backdrop-filter backdrop-blur-xl 
     ;
+
+    &-wrapper {
+      @apply
+        !sticky top-0 z-10
+        overflow-hidden
+      ;
+    }
 
     &-list {
       @apply
         flex justify-center gap-x-9
+        h-full
+        shadow-lg lg:shadow-sm
       ;
     }
 

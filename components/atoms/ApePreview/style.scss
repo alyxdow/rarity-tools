@@ -24,7 +24,7 @@
   &__container {
     @apply
       absolute top-0 left-0
-      h-full w-full pb-5 pl-3
+      h-full w-full pb-10 pl-14px
       bg-gradient-to-b from-transparent to-black
       flex flex-col justify-end
       opacity-0 hover:opacity-100
@@ -36,7 +36,7 @@
   &__id {
     @apply
       bg-black text-primary
-      absolute top-3 left-3
+      absolute top-14px left-14px
       p-1 px-2
       rounded
 

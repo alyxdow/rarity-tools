@@ -22,8 +22,11 @@ export default defineConfig({
       },
 
       boxShadow: {
-        'header' : '0px -4px 24px rgba(0, 0, 0, 0.1)',
-        'menu'   : '-2px 6px 11px rgba(0, 0, 0, 0.1)',
+        xl     : '0px  -4px 24px rgba(0, 0, 0, 0.1)'    ,
+        lg     : '0px 9px 13px 0px rgba(0, 0, 0, 0.05)',
+        md     : '-2px 6px  11px rgba(0, 0, 0, 0.1)'    ,
+        sm     : '8px  0px  13px 0px rgba(0, 0, 0, 0.03)',
+        header : '0px -8px 31px rgba(0, 0, 0, 0.05)',
       },
 
       fontFamily: {

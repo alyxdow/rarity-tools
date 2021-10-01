@@ -10,16 +10,16 @@
     )
 
     xl:(
-      gap-x-0 py-4 px-2
+      gap-x-0 py-4 px-2 h-56px shadow-sm
     )
   ;
 
   &__container {
     @apply
       flex justify-between items-center
-      py-10px px-20px w-full
-      relative
-      shadow-header md:shadow-none
+      py-10px px-20px w-full lg:py-0
+      relative z-99999
+      shadow-lg lg:shadow-header
     ;
   }
 
@@ -66,8 +66,8 @@
 
       & .header__logo-img {
         @apply
-          w-20
-          object-center object-cover
+          w-65px h-22px
+          object-center object-contain
         ;
       }
     }
@@ -75,8 +75,20 @@
     &--desktop {
       @apply
         hidden
-          md:flex
+          md:inline
       ;
+
+      & .header__logo-icon {
+        @apply
+          w-20px
+        ;
+      }
+
+      & .header__logo-text {
+        @apply
+          w-60px
+        ;
+      }
     }
 
     &-icon {
@@ -88,14 +100,14 @@
 
       &.scrolled {
         @apply
-          h-10 top-1
+          h-10 -top-1px
         ;
       }
     }
 
     &-text {
       @apply
-        h-12 ml-12
+        h-12 ml-6
       ;
     }
   }
@@ -110,8 +122,7 @@
       md:(h-12 mt-0 mb-2 mx-auto)
       md:(transform -translate-x-8)
 
-      xl:(absolute right-[50%])
-      xl:(top-7)
+      xl:(absolute right-[50%] top-1)
       xl:(transform translate-x-[45%])
     ;
 
@@ -126,8 +137,8 @@
 
     &-field {
       @apply 
-        flex flex-col
-        mb-10px 
+        flex flex-col justify-center
+        mb-10px
           md:(mx-0 mb-0 h-11)
       ;
     }
@@ -146,7 +157,8 @@
         w-full 
           md:(h-full w-230px) 
           2md:w-260px
-        border-none rounded outline-none
+          lg:(w-230px h-33px)
+          border-none rounded outline-none
         bg-gray-light
       ;
     }
@@ -155,6 +167,7 @@
       @apply 
         relative
         h-full
+        flex flex-col justify-center
       ;
     }
 
@@ -166,7 +179,7 @@
           sm:w-[90%]
           md:(w-130px h-full)
           2md:(w-180px)
-          lg:(pt-16px)
+          lg:(pt-16px h-33px)
         border-none rounded outline-none
         bg-gray-light
         relative z-10
@@ -180,6 +193,7 @@
         h-full w-[32%] pr-15px
           3sm:pr-13px
           md:(-right-82px w-84px)
+          lg:(-right-64px h-33px top-6px)
         text-right font-body500 leading-semibold
         bg-primary-light
         cursor-pointer rounded
