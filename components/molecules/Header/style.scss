@@ -15,11 +15,13 @@
   ;
 
   &__container {
+    box-shadow: 0px -4px 24px 0px rgba(0, 0, 0, 0.1);
+
     @apply
       flex justify-between items-center
       py-10px px-20px w-full lg:py-0
       relative z-99999
-      shadow-lg lg:shadow-header
+      lg:shadow-header
     ;
   }
 
