@@ -3,14 +3,14 @@ import { calculateApeScorePoint } from '~/api/rarity'
 import { Mutations } from '~/store/types'
 
 export default defineComponent({
-  props: ['ape'],
+  props: ['nft'],
 
   setup(props) {
-    const apeScore = ref()
+    const apeScore = ref(0)
 
     useFetch(async () => {
-      if (!props.ape) return
-      apeScore.value = await calculateApeScorePoint(props.ape)
+      if (!props.nft) return
+      apeScore.value = await calculateApeScorePoint(props.nft)
     })
 
     const { commit } = useStore()
@@ -18,7 +18,7 @@ export default defineComponent({
     const evaluateApe = () => {
       commit(Mutations.CLEAR_APE_INFO)
 
-      redirect(`/${props.ape.collection.value}/${props.ape.tokenId}`)
+      redirect(`/${props.nft.collection.value}/${props.nft.tokenId}`)
     }
 
     return { apeScore, evaluateApe }

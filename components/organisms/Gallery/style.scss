@@ -1,0 +1,70 @@
+.gallery {
+
+  &__tabs {
+    @apply
+      bg-white bg-opacity-60 mb-40px
+      h-40px
+      backdrop-filter backdrop-blur-xl 
+    ;
+
+    &-wrapper {
+      @apply
+        !sticky top-0 z-10
+        overflow-hidden
+      ;
+    }
+
+    &-list {
+      @apply
+        flex justify-center gap-x-9
+        h-full
+        shadow-lg lg:shadow-sm
+      ;
+    }
+
+    &-item {
+      @apply
+        py-3
+        cursor-pointer
+        text-smaller md:text-base
+      ;
+
+      &--active {
+        @apply
+          border-b-black border-b-2
+          rounded-sm
+        ;
+      }
+    }
+  }
+
+  &__images {
+    @apply
+      mx-6 pb-12
+      grid gap-5 
+      md:(grid-cols-2) 
+      lg:(grid-cols-3)
+    ;
+  }
+
+  &__loading {
+    @apply
+      text-center text-xl font-info
+      my-12
+    ;
+  }
+
+  &__load {
+    @apply
+      max-w-32 mx-auto mb-8 md:max-w-64
+      flex justify-center
+    ;
+
+    &-btn {
+      @apply
+        bg-primary-light
+        py-2 px-4
+      ;
+    }
+  }
+}

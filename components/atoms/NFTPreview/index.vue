@@ -1,14 +1,14 @@
 <template>
   <div class="preview">
     <div class="preview__image">
-      <img :src="ape.image" :alt="`ape #${ape.tokenId}`" class="preview__image-image" />
+      <img :src="nft.image" :alt="`ape #${nft.tokenId}`" class="preview__image-image" />
     </div>
 
     <div class="preview__container" @click="evaluateApe">
-      <div class="preview__id">#{{ ape.tokenId }}</div>
+      <div class="preview__id">#{{ nft.tokenId }}</div>
 
       <div class="preview__content">
-        <div class="preview__name">{{ ape.collection.name }} #{{ ape.tokenId }}</div>
+        <div class="preview__name">{{ nft.collection.name }} #{{ nft.tokenId }}</div>
 
         <div class="preview__score" v-if="apeScore">
           Score:
