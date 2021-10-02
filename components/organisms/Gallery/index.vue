@@ -8,7 +8,7 @@
             :class="{ 'gallery__tabs-item--active': actualPage === page, }"
             v-for="page in pages"
             :key="page.value"
-            @click="actualPage = page"
+            @click="togglePage(page)"
           >
             {{ page.name }}
           </li>

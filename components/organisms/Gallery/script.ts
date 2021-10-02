@@ -84,6 +84,11 @@ export default defineComponent({
       return index == 0 ? 'left' : index == views.length - 1 ? 'right' : 'center'
     }
 
+    const togglePage = (newPage: Page) => {
+      nfts.value = null
+      actualPage.value = newPage
+    }
+
     // Return values ---------------------------------------------------------------------------------------------------------|
     return {
       nfts,
@@ -92,6 +97,7 @@ export default defineComponent({
       views,
       activeView,
       side,
+      togglePage,
     }
   },
 })
