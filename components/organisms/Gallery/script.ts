@@ -18,7 +18,7 @@ export default defineComponent({
   // prettier-ignore
   props: {
     data: {
-      type     : Object as PropType<NFT[]>,
+      type     : Array as PropType<NFT[]>,
       required : true,
     },
 
