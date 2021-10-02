@@ -78,39 +78,50 @@
 .preview--thumbnail {
   @apply
     bg-gray-light bg-opacity-50
-   py-2 px-3
-   cursor-pointer
-   relative
+    py-2 px-3
+    cursor-pointer
+    relative
   ;
 
   & .preview {
     &__image img {
-      @apply rounded-md;
-      @apply mb-3;
+      @apply 
+        rounded-md
+        mb-3
+      ;
     }
 
     &__container {
-      @apply flex items-end gap-[15px];
+      @apply 
+        flex items-end gap-[15px]
+      ;
     }
 
     &__content {
-      @apply max-w-[80%];
-      @apply font-info;
+      @apply
+        max-w-[80%]
+        font-info
+      ;
     }
 
     &__id {
-      @apply px-2 py-1;
-      @apply bg-hex-030303 text-primary;
-      @apply font-semibold;
-      @apply rounded;
-      @apply absolute right-3 bottom-2;
+      @apply 
+        px-6px py-3px
+        bg-hex-030303 text-primary
+        font-semibold
+        rounded
+        absolute right-3 bottom-2
+        grid place-items-center
+      ;
     }
 
     &__score {
       &-score {
-        @apply px-1 h-3;
-        @apply bg-secondary rounded-sm;
-        @apply font-info600 text-smaller;
+        @apply 
+          px-1 h-3
+          bg-secondary rounded-sm
+          font-info600 text-smaller
+        ;
       }
     }
   }
