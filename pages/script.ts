@@ -1,13 +1,9 @@
-import { defineComponent, ref, onMounted, useContext, computed } from '@nuxtjs/composition-api'
-import { useFavicon, usePreferredDark, get } from '@vueuse/core'
+import { defineComponent, ref, onMounted } from '@nuxtjs/composition-api'
 import { collections, url } from '~/api/config'
 import useSetFavicon from '~/vue/useSetFavicon'
 
 export default defineComponent({
   setup() {
-    // Nuxt variables / methods ----------------------------------------------------------------------------------------------|
-    const { route } = useContext()
-
     // Apes ------------------------------------------------------------------------------------------------------------------|
     const nfts = ref()
     const getFirstApes = async () => {

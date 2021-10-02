@@ -1,15 +1,14 @@
-<template>
-  <div class="main">
-    <Gallery 
-      v-if="nfts" 
-      :data="nfts" 
-      :view="view" 
-      :pages="collections"
-      :limit="6"
-      sort="tokenId"
-    />
-  </div>
-</template>
+<script lang="ts">
+import { defineComponent, onMounted, useContext } from '@nuxtjs/composition-api'
 
-<script lang="ts" src="./script.ts"></script>
-<style lang="scss" src="./style.scss"></style>
+export default defineComponent({
+  setup() {
+    const { redirect } = useContext()
+    onMounted(() => redirect('/'))
+  }
+})
+</script>
+
+<template>
+  <div />
+</template>

@@ -7,12 +7,16 @@ export default defineConfig({
     extend: {
       colors: {
         primary         : '#42FFC6',
-        secondary       : '#F3BBF9',
         'primary-light' : '#B6FFE0',
+        secondary       : '#F3BBF9',
+
         black           : '#000000',
         white           : '#ffffff',
+
         'gray-light'    : '#F2F4F8',
         'blue-gray'     : '#B6C0D5',
+
+        outline         : '#7A8EA0',
       },
 
       screens: {

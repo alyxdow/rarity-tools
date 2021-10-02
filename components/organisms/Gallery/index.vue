@@ -8,18 +8,30 @@
             :class="{ 'gallery__tabs-item--active': actualPage === page, }"
             v-for="page in pages"
             :key="page.value"
-            @click="togglePage(page)"
+            @click="actualPage = page"
           >
             {{ page.name }}
           </li>
         </ul>
+
+        <div class="gallery__view">
+          <GalleryView
+            v-for="view in views"
+            :key="view"
+            :value="view"
+            :icon="`filter-${view}`"
+            type="svg"
+            :side="side(view)"
+            :active="activeView == view"
+            @click.native="activeView = view"
+          />
+        </div>
       </div>
     </div>
 
-
-    <div class="gallery__images" :class="view" v-if="nfts">
+    <div class="gallery__images" :class="activeView" v-if="nfts">
       <div class="gallery__images-preview" v-for="nft in nfts" :key="nft.tokenId">
-        <NFTPreview :nft="nft" />
+        <NFTPreview :nft="nft" :activeView="activeView" />
       </div>
     </div>
 

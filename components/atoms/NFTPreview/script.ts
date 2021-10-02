@@ -3,7 +3,7 @@ import { calculateApeScorePoint } from '~/api/rarity'
 import { Mutations } from '~/store/types'
 
 export default defineComponent({
-  props: ['nft'],
+  props: ['nft', 'activeView'],
 
   setup(props) {
     const apeScore = ref(0)

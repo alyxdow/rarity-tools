@@ -1,14 +1,13 @@
 .gallery {
-
   &__tabs {
     @apply
       bg-white bg-opacity-60 mb-40px
       h-40px
       backdrop-filter backdrop-blur-xl 
     ;
-
-    &-wrapper {
-      @apply
+      
+      &-wrapper {
+        @apply
         !sticky top-0 z-10
         overflow-hidden
       ;
@@ -16,9 +15,10 @@
 
     &-list {
       @apply
-        flex justify-center gap-x-9
+        flex gap-x-9 px-3
         h-full
         shadow-lg lg:shadow-sm
+        md:justify-center
       ;
     }
 
@@ -47,6 +47,11 @@
     ;
   }
 
+  &__view {
+    @apply flex absolute right-2 top-1;
+    @apply lg:(right-5 bottom-2);
+  }
+
   &__loading {
     @apply
       text-center text-xl font-info
@@ -64,6 +69,36 @@
       @apply
         bg-primary-light
         py-2 px-4
+      ;
+    }
+  }
+}
+
+.gallery__images.gallery {
+  @apply
+    mx-6 pb-12
+    grid gap-[40px] md:grid-cols-2 lg:grid-cols-3
+  ;
+}
+
+.gallery__images.thumbnail {
+  @apply
+    mx-6 pb-12
+    grid gap-2 grid-cols-2 md:grid-cols-4 lg:grid-cols-6
+  ;
+}
+
+.gallery__images.list {
+  @apply
+    pb-12 mx-0 -mt-10
+    flex flex-col
+    gap-0
+  ;
+
+  & .gallery__images-preview {
+    &:nth-child(even) {
+      @apply 
+        bg-gray-light
       ;
     }
   }

@@ -1,19 +1,15 @@
-<script lang="ts">
-import { defineComponent, onMounted, useContext } from '@nuxtjs/composition-api'
-
-export default defineComponent({
-  setup() {
-    const { redirect } = useContext()
-
-    onMounted(() => {
-      const collection = localStorage.getItem('collection') || 'bored'
-
-      redirect(`/${collection}`)
-    })
-  },
-})
-</script>
-
 <template>
-  <div></div>
+  <div class="main">
+    <Gallery 
+      v-if="nfts" 
+      :data="nfts" 
+      :view="view" 
+      :pages="collections"
+      :limit="6"
+      sort="tokenId"
+    />
+  </div>
 </template>
+
+<script lang="ts" src="./script.ts"></script>
+<style lang="scss" src="./style.scss"></style>

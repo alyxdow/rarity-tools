@@ -1,0 +1,20 @@
+.view {
+  &__item {
+    @apply 
+      cursor-pointer
+      border border-outline border-opacity-30
+    ;
+  }
+}
+
+.left {
+  @apply 
+    rounded-tl-sm rounded-bl-sm
+  ;
+}
+
+.right {
+  @apply
+    rounded-tr-sm rounded-br-sm
+  ;
+}
