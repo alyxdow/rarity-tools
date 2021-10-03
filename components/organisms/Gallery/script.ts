@@ -39,16 +39,19 @@ export default defineComponent({
     // Get NFT ---------------------------------------------------------------------------------------------------------------|
     // prettier-ignore
     const getNFT = async (from?: number, to?: number) => {
-      const dataUrl = computed(() => filter(props.data, {
-        value: actualPage.value!.value
-      })[0])
+      let dataUrl: NFT
 
-      const res  = await fetch(dataUrl.value.url)
+      if (actualPage.value) 
+        dataUrl = filter(props.data, { value: actualPage.value.value })[0]
+      else 
+        dataUrl = props.data[0]
+
+      const res  = await fetch(dataUrl.url)
       const body = await res.json()
 
       const rawNFT = body.collection.map((ape: any) => ({
         ...ape,
-        collection: filter(collections, { value: dataUrl.value.value })[0],
+        collection: filter(collections, { value: dataUrl.value })[0],
       }))
 
       let nftsData              = rawNFT
