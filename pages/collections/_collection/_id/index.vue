@@ -1,5 +1,5 @@
 <template>
-  <div class="ape">
+  <main class="ape">
     <div class="ape__close" @click="clearApe">
       <img src="~/assets/svg/close-icon-mobile.svg" alt="close" class="ape__close-icon ape__close-icon--mobile" />
     </div>
@@ -77,7 +77,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </main>
 </template>
 
 <script lang="ts" src="./script.ts"></script>

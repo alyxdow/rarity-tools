@@ -153,6 +153,7 @@ export default {
    * |------------------------------------------------------------------------------------------------------------------------|
    */
   env: {
-    baseUrl: process.env.SEO_PERMALINK || 'https://apexgo.io'
+    baseUrl     : process.env.SEO_PERMALINK || 'https://apexgo.io',
+    devUsername : process.env.DEV_USERNAME  || null               ,
   },
 }
