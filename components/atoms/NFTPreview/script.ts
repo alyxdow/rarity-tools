@@ -18,7 +18,7 @@ export default defineComponent({
     const evaluateApe = () => {
       commit(Mutations.CLEAR_APE_INFO)
 
-      redirect(`/${props.nft.collection.value}/${props.nft.tokenId}`)
+      redirect(`/collections/${props.nft.collection.value}/${props.nft.tokenId}`)
     }
 
     return { apeScore, evaluateApe }
