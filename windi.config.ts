@@ -14,6 +14,8 @@ export default defineConfig({
         white           : '#ffffff',
 
         'gray-light'    : '#F2F4F8',
+        'gray-lighter'  : '#F9FAFC',
+        'gray-dark'     : '#D7D7D7',
         'blue-gray'     : '#B6C0D5',
 
         outline         : '#7A8EA0',
@@ -49,6 +51,7 @@ export default defineConfig({
 
       fontSize: {
         base     : '10px'   ,
+        colossus : '40px'   ,
         biggest  : '20px'   ,
         bigger   : '19.02px',
         big      : '15px'   ,

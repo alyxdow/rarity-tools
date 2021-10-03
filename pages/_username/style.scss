@@ -1,0 +1,68 @@
+.profile {
+  &__wrapper {
+    @apply
+      mt-5 mx-3 lg:mt-40px
+      grid grid-cols-12 
+        lg:(flex justify-center)
+      relative
+    ;
+  }
+
+  &__info {
+    @apply
+      col-span-10 lg:flex
+    ;
+
+    &-content {
+      @apply
+        mx-14px lg:max-w-200px
+        font-info lg:text-medium
+        lg:(flex flex-col justify-center)
+      ;
+    }
+
+    &-image {
+      @apply
+        w-120px h-120px
+          lg:(w-185px h-185px)
+      ;
+    }
+
+    &-name {
+      @apply
+        mt-27px lg:mt-0
+        font-info500 text-biggest lg:text-colossus
+      ;
+    }
+
+    &-bio {
+      @apply
+        my-27px lg:(mt-0 mb-17px)
+      ;
+    }
+
+    &-twitter {
+      @apply
+        flex items-baseline gap-x-2px
+        bg-gray-lighter text-gray-dark
+      ;
+    }
+  }
+
+  &__share {
+    @apply
+      col-start-12
+      grid place-items-center
+      bg-gray-lighter text-gray-dark
+      h-29px w-29px
+      focus:outline-none
+      lg:(transform translate-y-4 -translate-x-24px)
+    ;
+
+    &-icon {
+      @apply
+        text-medium
+      ;
+    }
+  }
+}

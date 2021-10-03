@@ -71,7 +71,7 @@
       </nav>
     </div>
 
-    <form class="header__form" @submit.prevent="evaluateApe">
+    <!-- <form class="header__form" @submit.prevent="evaluateApe">
       <h2 class="header__form-title">Look for your NFT</h2>
       <div class="header__form-field">
         <label class="header__form-label" for="header-select">Select Collection</label>
@@ -92,7 +92,7 @@
           <input type="submit" class="header__form-submit" value="Lookup" />
         </div>
       </div>
-    </form>
+    </form> -->
   </header>
 </template>
 
