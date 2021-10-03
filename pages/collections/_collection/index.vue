@@ -8,7 +8,3 @@ export default defineComponent({
   }
 })
 </script>
-
-<template>
-  <div />
-</template>

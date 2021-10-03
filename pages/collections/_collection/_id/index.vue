@@ -14,9 +14,9 @@
 
     <div class="ape__success" v-else>
       <div class="ape__left">
-        <div class="ape__rank">
-          <!-- <InfoToast text="Rarity rank: #0000" info="Owner: Art1k" /> -->
-        </div>
+        <!-- <div class="ape__rank">
+          <InfoToast text="Rarity rank: #0000" info="Owner: Art1k" />
+        </div> -->
 
         <div class="ape__image">
           <img :src="ape.image" :alt="`ape #${ape.tokenId}`" />
@@ -56,8 +56,8 @@
           </div>
         </div>
 
-        <div class="ape__tabs"></div>
-        <div class="ape__sort"></div>
+        <!-- <div class="ape__tabs"></div> -->
+        <!-- <div class="ape__sort"></div> -->
 
         <div class="ape__traits">
           <ul>
