@@ -1,6 +1,6 @@
 import { defineComponent, useFetch, ref, computed, watch, PropType } from '@nuxtjs/composition-api'
 import fetch from 'cross-fetch'
-import { filter, sortBy } from 'lodash'
+import { filter, first, sortBy } from 'lodash'
 import { collections } from '~/api/config'
 import { Collection } from '~/types'
 
@@ -34,13 +34,13 @@ export default defineComponent({
 
   setup(props) {
     const nfts = ref()
-    const actualPage = ref()
+    const actualPage = ref(first(props.pages))
 
     // Get NFT ---------------------------------------------------------------------------------------------------------------|
     // prettier-ignore
     const getNFT = async (from?: number, to?: number) => {
       const dataUrl = computed(() => filter(props.data, {
-        value: actualPage.value.value
+        value: actualPage.value!.value
       })[0])
 
       const res  = await fetch(dataUrl.value.url)
@@ -70,7 +70,7 @@ export default defineComponent({
 
     // Fetch data on instance mounted ----------------------------------------------------------------------------------------|
     useFetch(async () => {
-      actualPage.value = props.firstPage ? props.firstPage : props.pages[0]
+      actualPage.value = props.firstPage ? props.firstPage : first(props.pages)
       nfts.value = await getNFT(0, props.limit)
     })
 
