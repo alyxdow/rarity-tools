@@ -2,15 +2,15 @@
   &__wrapper {
     @apply
       mt-5 mx-3 lg:mt-40px
-      grid grid-cols-12 
-        lg:(flex justify-center)
+      flex justify-center
       relative
     ;
   }
 
   &__info {
     @apply
-      col-span-10 lg:flex
+      relative
+      lg:flex
     ;
 
     &-content {
@@ -25,6 +25,12 @@
       @apply
         w-120px h-120px
           lg:(w-185px h-185px)
+      ;
+    }
+
+    &-wrapper {
+      @apply
+        flex items-baseline
       ;
     }
 
@@ -47,22 +53,23 @@
         bg-gray-lighter text-gray-dark
       ;
     }
-  }
 
-  &__share {
-    @apply
-      col-start-12
-      grid place-items-center
-      bg-gray-lighter text-gray-dark
-      h-29px w-29px
-      focus:outline-none
-      lg:(transform translate-y-4 -translate-x-24px)
-    ;
-
-    &-icon {
+    &-share {
       @apply
-        text-medium
+        grid place-items-center
+        absolute right-2 top-0 lg:static
+        bg-gray-lighter text-gray-dark
+        h-29px w-29px
+        focus:outline-none
+
+        lg:(transform -translate-y-6px translate-x-3)
       ;
+  
+      &-icon {
+        @apply
+          text-medium
+        ;
+      }
     }
   }
 }

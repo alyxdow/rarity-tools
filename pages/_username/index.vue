@@ -4,7 +4,14 @@
       <div class="profile__info">
         <img src="~/assets/img/logo-gray.png" alt="profile image" class="profile__info-image">
         <div class="profile__info-content">
-          <h2 class="profile__info-name">{{ username }}</h2>
+          <div class="profile__info-wrapper">
+            <h2 class="profile__info-name">{{ username }}</h2>
+
+            <button class="profile__info-share">
+              <i class="profile__share-icon ri-share-fill"></i>
+            </button>
+          </div>
+
           <p class="profile__info-bio">
             Ability to bring Twitter Username, Profile Image, Link to their Twitter & Bio. 
           </p>
@@ -15,9 +22,6 @@
           </button>
         </div>
       </div>
-      <button class="profile__share">
-        <i class="profile__share-icon ri-share-fill"></i>
-      </button>
     </div>
   </main>
 </template>
