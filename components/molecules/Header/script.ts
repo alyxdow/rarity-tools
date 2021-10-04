@@ -1,12 +1,29 @@
 import { defineComponent, ref, useContext, useStore, computed } from '@nuxtjs/composition-api'
 import { useMediaQuery } from '@vueuse/core'
 import { filter } from 'lodash'
-import { collections as allCollections } from '~/api/config'
+import { collections as allCollections, rules } from '~/api/config'
 import { Mutations } from '~/store/types'
 import useModal from '~/vue/useModal'
 import { useScroll } from '~/vue/useScroll'
 
 export default defineComponent({
+  props: {
+    mobileForm: {
+      type: Boolean,
+      default: true,
+    },
+
+    tabletForm: {
+      type: Boolean,
+      default: true,
+    },
+
+    desktopForm: {
+      type: Boolean,
+      default: true,
+    },
+  },
+
   setup() {
     const { getters, commit } = useStore()
     const { redirect } = useContext()

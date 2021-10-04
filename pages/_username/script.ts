@@ -42,4 +42,6 @@ export default defineComponent({
       username,
     }
   },
+
+  layout: 'profile',
 })

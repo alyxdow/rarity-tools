@@ -116,7 +116,7 @@
 
   &__form {
     @apply
-      flex flex-col
+      hidden
       my-90px mx-26px
       z-50
 
@@ -127,6 +127,24 @@
       xl:(absolute right-[50%] top-1)
       xl:(transform translate-x-[45%])
     ;
+
+    &.mobile {
+      @apply
+        flex flex-col
+      ;
+    }
+
+    &.tablet {
+      @apply
+        md:flex
+      ;
+    }
+
+    &.desktop {
+      @apply
+        lg:flex
+      ;
+    }
 
     &-title {
       @apply 

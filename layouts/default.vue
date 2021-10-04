@@ -5,4 +5,10 @@
   </div>
 </template>
 
-<style lang="scss" src="./default.scss"></style>
+<style lang="postcss">
+body {
+  @apply
+    font-body leading-base text-base
+  ;
+}
+</style>
