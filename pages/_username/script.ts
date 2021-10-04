@@ -11,6 +11,7 @@ export default defineComponent({
       const firstLetters = name.slice(0, 3)
       const lastLetters  = name.slice(name.length - 3, name.length)
 
+      // TODO: Verify if the user is logged on Tron or Twitter here
       return name.length == 34 
         ? `${firstLetters}...${lastLetters}` 
         : `@${name}`
@@ -20,6 +21,8 @@ export default defineComponent({
       if (route.value.params.username !== process.env.devUsername) {
         redirect('/')
       }
+
+      // TODO: Tron connection, Twitter connection
 
       useSetFavicon()
     })
