@@ -119,13 +119,6 @@
       hidden
       my-90px mx-26px
       z-50
-
-      md:(flex-row items-center gap-x-2)
-      md:(h-12 mt-0 mb-2 mx-auto)
-      md:(transform -translate-x-8)
-
-      xl:(absolute right-[50%] top-1)
-      xl:(transform translate-x-[45%])
     ;
 
     &.mobile {
@@ -136,13 +129,17 @@
 
     &.tablet {
       @apply
-        md:flex
+        md:(flex flex-row items-center gap-x-2)
+        md:(h-12 mt-0 mb-2 mx-auto)
+        md:(transform -translate-x-8)
       ;
     }
 
     &.desktop {
       @apply
         lg:flex
+        xl:(absolute right-[50%] top-1)
+        xl:(transform translate-x-[45%])
       ;
     }
 
